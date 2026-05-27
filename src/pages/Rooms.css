@@ -1,0 +1,326 @@
+.rooms-page {
+  background: #f8f9fc;
+  min-height: 100vh;
+}
+
+/* HERO */
+
+.rooms-hero {
+  position: relative;
+  height: 50vh;
+  background: url("/images/dormHero.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rooms-hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.rooms-hero-content {
+  position: relative;
+  color: white;
+  text-align: center;
+  z-index: 2;
+}
+
+.rooms-hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.rooms-hero-content p {
+  font-size: 1.1rem;
+}
+
+/* SECTION */
+
+.rooms-section {
+  padding: 80px 20px;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title span {
+  color: #d62828;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.section-title h2 {
+  font-size: 2.2rem;
+  margin-top: 10px;
+}
+
+/* GRID */
+
+.rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+/* CARD */
+
+.room-card {
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+}
+
+.room-card:hover {
+  transform: translateY(-8px);
+}
+
+.room-image {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.room-content {
+  padding: 25px;
+}
+
+.room-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.room-header h3 {
+  font-size: 1.4rem;
+}
+
+.room-price {
+  color: #d62828;
+  font-weight: bold;
+}
+
+.room-content p {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.room-content small {
+  display: block;
+  margin-bottom: 20px;
+  color: #777;
+}
+
+/* AMENITIES */
+
+.amenities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.amenity {
+  background: #f1f1f1;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+/* BUTTON */
+
+.reserve-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  background: #d62828;
+  color: white;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.reserve-btn:hover {
+  background: #b71c1c;
+}
+
+/* CAROUSEL */
+
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
+
+.room-image {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  transition: 0.3s ease;
+}
+
+/* BUTTONS */
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: rgba(0,0,0,0.45);
+  color: white;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 10;
+}
+
+.carousel-btn:hover {
+  background: rgba(0,0,0,0.7);
+}
+
+.carousel-btn.left {
+  left: 12px;
+}
+
+.carousel-btn.right {
+  right: 12px;
+}
+
+/* DOTS */
+
+.carousel-dots {
+  position: absolute;
+  bottom: 14px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.dot.active {
+  background: white;
+  transform: scale(1.2);
+}
+
+/* IMAGE */
+
+.room-image {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* FADE ANIMATION */
+
+.fade {
+  animation: fadeEffect 0.5s ease;
+}
+
+@keyframes fadeEffect {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* THUMBNAILS */
+
+.thumbnail-row {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  justify-content: center;
+  background: #fafafa;
+}
+
+.thumbnail {
+  width: 70px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: 0.3s;
+  border: 2px solid transparent;
+}
+
+.thumbnail:hover {
+  opacity: 1;
+}
+
+.thumb-active {
+  opacity: 1;
+  border: 2px solid #d62828;
+}
+
+/* LIGHTBOX */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.lightbox-image {
+  max-width: 90%;
+  max-height: 85vh;
+  border-radius: 12px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* IMPROVED CARD */
+
+.room-card {
+  overflow: hidden;
+  border-radius: 20px;
+  background: white;
+  transition: 0.3s;
+}
+
+.room-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}

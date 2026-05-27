@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100">
+  <defs>
+    <linearGradient id="gradRed" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#b30000" />
+      <stop offset="100%" stop-color="#ff4d4d" />
+    </linearGradient>
+    <linearGradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#001f3f" />
+      <stop offset="100%" stop-color="#0074D9" />
+    </linearGradient>
+  </defs>
+
+  <!-- Dormitoryana text with shimmer -->
+  <text x="10" y="60" font-family="Brush Script MT, cursive" font-size="48" fill="url(#gradRed)">
+    Dormitoryana
+    <animate attributeName="fill-opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite" />
+  </text>
+
+  <!-- SMRC text with pulse -->
+  <text x="210" y="80" font-family="Arial, sans-serif" font-size="28" fill="url(#gradBlue)">
+    SMRC
+    <animateTransform attributeName="transform" type="scale" values="1;1.05;1" dur="2s" repeatCount="indefinite" />
+  </text>
+</svg>
