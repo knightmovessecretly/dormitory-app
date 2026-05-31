@@ -222,6 +222,10 @@ body{
   border:1px solid rgba(147,197,253,0.2);
 }
 
+.features-section {
+  background: #ff6060;
+
+}
 .hero-buttons{
   display:flex;
   gap:20px;
@@ -376,6 +380,10 @@ section{
   margin-top:18px;
 }
 
+.rooms-section {
+background: #D51C39;
+}
+
 .red-accent{
   color:#ef4444;
   font-weight:600;
@@ -393,9 +401,9 @@ section{
 }
 
 /* ABOUT */
-
+ 
 .about-section{
-  background:#0f172a;
+  background:#ED8CB9;
 }
 
 .about-grid{
@@ -434,6 +442,7 @@ section{
     #1e3a8a,
     #0f172a
   );
+  background-image: url('/background.jpg'); ;
   text-align:center;
 }
 

@@ -30,7 +30,7 @@ export default function Navbar() {
             <Link to="/rooms" className="hover:text-blue-600">Rooms</Link>
             <Link to="/services" className="hover:text-blue-600">Services</Link>
             <Link to="/news" className="hover:text-blue-600">News</Link>
-            <Link to="/contact" className="hover:text-blue-600">Contact with Map</Link>
+            <Link to="/contact" className="hover:text-blue-600">Contact Us</Link>
             <Link to="/about" className="hover:text-blue-600">About Us</Link>
             <Link to="/faq" className="hover:text-blue-600">FAQ</Link>
 

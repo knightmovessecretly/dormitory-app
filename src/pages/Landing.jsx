@@ -46,215 +46,117 @@ const rooms = [
       <header className="navbar">
 
       </header>
-
       {/* HERO */}
-      <section className="hero-section" id="home">
+<section
+  id="home"
+  className="hero-section relative min-h-screen bg-[#1a0000] text-[#ffecec]"
+>  <div className="container mx-auto px-4 py-16 lg:py-24">
+   
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      
+      {/* LEFT CONTENT */}
+      <div className="text-center lg:text-left">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+          Exclusive Female Dorm
+        </h1>
 
+        <p className="mt-6 text-sm md:text-base lg:text-lg text-[#ffecec]/80 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+          Dormitoryana has over 90 rooms with different pricing and room configurations.
+          Each room is unique with en-suite bathrooms. Ocular visits are by appointment.
+        </p>
 
-        <div className="container hero-content">
+        <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          
+          <Link
+            to="/rooms"
+            className="
+              px-6 py-3 rounded-xl font-semibold
+              bg-gradient-to-r from-[#ff0000] to-[#b30000]
+              hover:from-[#ff4d4d] hover:to-[#ff0000]
+              shadow-lg shadow-red-900/40
+              transition
+            "
+          >
+            Explore Rooms
+          </Link>
 
+          <Link
+            to="/about"
+            className="
+              px-6 py-3 rounded-xl font-semibold
+              border border-[#ff4d4d]/40
+              bg-[#320000]/40
+              hover:bg-[#500000]/60
+              transition
+            "
+          >
+            Learn More
+          </Link>
 
+        </div>
+      </div>
 
+      {/* RIGHT FEATURE CARDS (YOUR STYLE RETAINED) */}
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-2 gap-4">
 
-          <div className="hero-left">
+        {["Safe", "Cozy", "Affordable", "Exclusive"].map((item, index) => (
+          <button
+            key={item}
+            className="
+              group relative overflow-hidden
+              w-full
+              px-5 py-5
+              rounded-2xl
 
+              border border-[#ff4d4d]/30
+              bg-gradient-to-br from-[#320000]/90 via-[#500000]/70 to-[#1a0000]/90
 
+              backdrop-blur-xl
+              text-left text-[#ffecec]
+              font-semibold
 
+              shadow-xl shadow-red-900/30
 
+              transition-all duration-500
+              hover:scale-105 hover:-translate-y-1
 
+              active:scale-95
+            "
+            style={{
+              animation: `float 3s ease-in-out infinite`,
+              animationDelay: `${index * 0.3}s`,
+            }}
+          >
+            {/* glow */}
+            <span className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-[#ff0000]/10 via-[#ff4d4d]/25 to-[#ff0000]/10 transition" />
 
-            <h1>Exclusive Female Dorm<br />
-            </h1>
-        <div className="hero-overlay"></div>
+            {/* content */}
+            <span className="relative z-10 flex items-center gap-3">
+              <span className="text-xl">✦</span>
+              <span className="group-hover:tracking-widest transition">
+                {item}
+              </span>
+            </span>
+          </button>
+        ))}
 
-            <p>Dormitoryana has over 90 rooms with different pricing and room configurations.  
-Each room is unique. Units and clusters have en suite bathrooms each.
-If you would like to schedule an appointment for a Room Tour, please email us your ID and Vaxcard.
-Oculars are by appointment only, upon 2-days minimum advance notice.
-We have a room for your budget! See you 😉
-            </p>
+      </div>
 
-            <div className="hero-buttons">
+    </div>
+  </div>
 
-              <Link to="/rooms" className="btn-primary">
-                Explore Rooms
-              </Link>
-
-              <Link to="/about" className="btn-secondary">
-                Learn More
-              </Link>
-
-            </div>
-
-          </div>
-
-<div className="flex flex-col items-start gap-6 bg-transparent p-6 rounded-3xl">
-  {["Safe", "Cozy", "Affordable", "Exclusive"].map((item, index) => (
-    <button
-      key={item}
-      className="
-        group
-        relative overflow-hidden
-
-        w-72
-        px-7 py-4
-
-        rounded-2xl
-        border border-[#ff4d4d]/30
-
-        bg-gradient-to-br
-        from-[#320000]/90
-        via-[#500000]/70
-        to-[#1a0000]/90
-
-        backdrop-blur-2xl
-
-        text-left
-        text-[#ffecec]
-        font-semibold
-        tracking-wide
-
-        shadow-xl shadow-red-900/30
-
-        transition-all duration-500 ease-out
-        cursor-pointer
-
-        hover:translate-x-5
-        hover:-translate-y-2
-        hover:rotate-[1deg]
-        hover:scale-105
-
-        hover:border-[#ff6666]
-        hover:shadow-[0_0_45px_rgba(255,0,0,0.5)]
-
-        active:scale-95
-
-        before:absolute
-        before:inset-0
-        before:rounded-2xl
-        before:border
-        before:border-[#ff4d4d]/10
-        before:animate-pulse
-      "
-      style={{
-        animation: `float 3s ease-in-out infinite`,
-        animationDelay: `${index * 0.4}s`,
-      }}
-    >
-      {/* Animated background glow */}
-      <span
-        className="
-          absolute inset-0
-          opacity-0
-          bg-gradient-to-r
-          from-[#ff0000]/10
-          via-[#ff4d4d]/25
-          to-[#ff0000]/10
-
-          transition-all duration-700
-          group-hover:opacity-100
-        "
-      />
-
-      {/* Moving shine line */}
-      <span
-        className="
-          absolute top-0 left-[-120%]
-          h-full w-1/2
-          skew-x-[-20deg]
-
-          bg-gradient-to-r
-          from-transparent
-          via-white/25
-          to-transparent
-
-          transition-all duration-1000
-          group-hover:left-[140%]
-        "
-      />
-
-      {/* Floating particles */}
-      <span className="absolute top-2 right-3 h-2 w-2 rounded-full bg-red-400/70 animate-ping" />
-      <span className="absolute bottom-3 right-8 h-1.5 w-1.5 rounded-full bg-red-300/60 animate-pulse" />
-
-      {/* Content */}
-      <span className="relative z-10 flex items-center gap-4">
-        {/* Animated icon */}
-        <span
-          className="
-            flex h-9 w-9 items-center justify-center
-            rounded-full
-
-            bg-gradient-to-br
-            from-[#ff4d4d]/30
-            to-[#ff0000]/10
-
-            text-[#ff8c8c]
-
-            shadow-inner
-            shadow-red-500/30
-
-            transition-all duration-500
-
-            group-hover:rotate-180
-            group-hover:scale-125
-            group-hover:shadow-[0_0_20px_rgba(255,0,0,0.7)]
-          "
-        >
-          ✦
-        </span>
-
-        {/* Text */}
-        <span
-          className="
-            text-lg
-            transition-all duration-300
-
-            group-hover:tracking-widest
-            group-hover:text-white
-          "
-        >
-          {item}
-        </span>
-      </span>
-
-      {/* Bottom glow line */}
-      <span
-        className="
-          absolute bottom-0 left-0
-          h-[2px] w-0
-
-          bg-gradient-to-r
-          from-red-500
-          to-pink-400
-
-          transition-all duration-700
-          group-hover:w-full
-        "
-      />
-    </button>
-  ))}
-
-  {/* Floating animation */}
+  {/* FLOAT ANIMATION (kept) */}
   <style>
     {`
       @keyframes float {
-        0% {
-          transform: translateY(0px);
-        }
-        50% {
-          transform: translateY(-6px);
-        }
-        100% {
-          transform: translateY(0px);
-        }
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-6px); }
+        100% { transform: translateY(0px); }
       }
     `}
   </style>
-</div>
-        </div>
+</section>
 
-      </section>
 
       {/* FEATURES */}
 <section className="features-section py-20 bg-slate-50">
