@@ -1,3 +1,4 @@
+import { Link,useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import ServiceGalleryModal from "../components/ServiceGalleryModal";
@@ -13,11 +14,8 @@ import {
 import TiltCard from "../components/TiltCard";
 
 export default function Services() {
-
   const [selectedService, setSelectedService] = useState(null);
-
-
-const services = [
+  const services = [
   {
     id: 1,
     title: "Gym Access",
@@ -59,7 +57,7 @@ const services = [
     icon: <Church size={32} />,
     coverImage: "/images/prayerRoom.png",
     images: [
-      "/images/prayerRoom.jpg",
+      "/images/prayerRoom.png",
     ],
   },
   {
@@ -74,7 +72,7 @@ const services = [
   },
   {
     id: 6,
-    title: "Rooftop Lounge",
+    title: "Study Deck",
     description: "City view relaxation area.",
     icon: <Building2 size={32} />,
     coverImage: "/images/roofdeck.png",
@@ -116,7 +114,6 @@ const services = [
     "
     style={{ backgroundImage: "url('/background.jpg')" }}
   >
-
     {/* DARK OVERLAY */}
     <div className="absolute inset-0 bg-black/70" />
 
@@ -171,6 +168,7 @@ const services = [
           leading-tight
           tracking-tight
           drop-shadow-2xl
+          text-pink-500
         "
       >
         Services & Amenities
@@ -321,7 +319,7 @@ const services = [
             text-4xl
             md:text-5xl
             font-black
-            text-gray-900
+            text-pink-500
           "
         >
           Our Available Services

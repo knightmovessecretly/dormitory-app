@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Bell, User, LogOut, Menu, X } from "lucide-react";
+import { useAuth } from "../context/AuthContext";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
 
-  // (optional) later replace this with real auth role
-  const isAdmin = true;
+  const { user, logout } = useAuth();
+
+  const isAdmin = user?.role === "admin";
 
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
@@ -15,12 +19,11 @@ export default function Navbar() {
 
           {/* LOGO */}
           <Link to="/" className="font-bold text-xl text-blue-600">
-             <img
-            src="/logo.png"
-            alt="Dormitory Logo"
-            className="logo-image"
-          />
-
+            <img
+              src="/logo.png"
+              alt="Dormitory Logo"
+              className="h-12 w-auto"
+            />
           </Link>
 
           {/* DESKTOP MENU */}
@@ -34,42 +37,104 @@ export default function Navbar() {
             <Link to="/about" className="hover:text-blue-600">About Us</Link>
             <Link to="/faq" className="hover:text-blue-600">FAQ</Link>
 
-            {/* ADMIN LINK (only show if admin) */}
-            {isAdmin && (
-              <Link
-                to="/admin"
-                className="text-red-600 font-semibold hover:text-red-700"
-              >
-                Admin
-              </Link>
+
+            {!user ? (
+              <>
+
+              </>
+            ) : (
+              <>
+                {/* Notifications */}
+                <button className="relative">
+                  <Bell size={20} />
+                  <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full px-1">
+                    3
+                  </span>
+                </button>
+
+                {/* User Profile Dropdown */}
+                <div className="relative">
+                  <button
+                    onClick={() => setProfileOpen(!profileOpen)}
+                    className="flex items-center gap-2"
+                  >
+                    {user.photoURL ? (
+                      <img
+                        src={user.photoURL}
+                        alt="Profile"
+                        className="w-9 h-9 rounded-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-9 h-9 rounded-full bg-blue-100 flex items-center justify-center">
+                        <User size={18} />
+                      </div>
+                    )}
+
+                    <span>{user.name || "User"}</span>
+                  </button>
+
+                  {profileOpen && (
+                    <div className="absolute right-0 mt-2 w-52 bg-white border rounded-lg shadow-lg">
+
+                      <div className="px-4 py-3 border-b">
+                        <p className="font-medium">
+                          {user.name}
+                        </p>
+                        <p className="text-xs text-gray-500">
+                          {user.email}
+                        </p>
+                      </div>
+
+                      <Link
+                        to="/profile"
+                        className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100"
+                      >
+                        <User size={16} />
+                        My Profile
+                      </Link>
+
+                      <Link
+                        to="/my-bookings"
+                        className="block px-4 py-2 hover:bg-gray-100"
+                      >
+                        My Reservations
+                      </Link>
+
+                      <button
+                        onClick={logout}
+                        className="w-full text-left flex items-center gap-2 px-4 py-2 text-red-600 hover:bg-red-50"
+                      >
+                        <LogOut size={16} />
+                        Logout
+                      </button>
+
+                    </div>
+                  )}
+                </div>
+              </>
             )}
-
-            <Link
-              to="/register"
-              className="bg-blue-600 text-white px-3 py-1.5 rounded-lg"
-            >
-              Register
-            </Link>
-
           </div>
 
           {/* MOBILE BUTTON */}
           <button
             onClick={() => setOpen(!open)}
-            className="md:hidden text-2xl"
+            className="md:hidden"
           >
-            ☰
+            {open ? <X size={24} /> : <Menu size={24} />}
           </button>
+
         </div>
 
         {/* MOBILE MENU */}
         {open && (
-          <div className="md:hidden flex flex-col gap-3 py-4 border-t text-sm">
+          <div className="md:hidden flex flex-col gap-3 py-4 border-t">
 
             <Link to="/" onClick={() => setOpen(false)}>Home</Link>
             <Link to="/rooms" onClick={() => setOpen(false)}>Rooms</Link>
             <Link to="/services" onClick={() => setOpen(false)}>Services</Link>
             <Link to="/news" onClick={() => setOpen(false)}>News</Link>
+            <Link to="/contact" onClick={() => setOpen(false)}>Contact Us</Link>
+            <Link to="/about" onClick={() => setOpen(false)}>About Us</Link>
             <Link to="/faq" onClick={() => setOpen(false)}>FAQ</Link>
 
             {isAdmin && (
@@ -82,13 +147,36 @@ export default function Navbar() {
               </Link>
             )}
 
-            <Link
-              to="/register"
-              className="text-blue-600 font-semibold"
-              onClick={() => setOpen(false)}
-            >
-              Register
-            </Link>
+            {!user ? (
+              <>
+              </>
+            ) : (
+              <>
+                <Link
+                  to="/profile"
+                  onClick={() => setOpen(false)}
+                >
+                  My Profile
+                </Link>
+
+                <Link
+                  to="/notifications"
+                  onClick={() => setOpen(false)}
+                >
+                  Notifications
+                </Link>
+
+                <button
+                  onClick={() => {
+                    logout();
+                    setOpen(false);
+                  }}
+                  className="text-left text-red-600"
+                >
+                  Logout
+                </button>
+              </>
+            )}
 
           </div>
         )}

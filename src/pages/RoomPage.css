@@ -1,0 +1,71 @@
+.rooms-page {
+  min-height: 100vh;
+    background: linear-gradient(to right, #f9c2c2, #ffffff);
+}
+
+/* HERO */
+.rooms-hero {
+  position: relative;
+  height: 50vh;
+  background: url("/images/dormHero.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rooms-hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.rooms-hero-content {
+  position: relative;
+  color: white;
+  text-align: center;
+  z-index: 2;
+}
+
+.rooms-hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.rooms-hero-content p {
+  font-size: 1.1rem;
+}
+
+/* SECTION */
+.rooms-section {
+  padding: 80px 20px;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* TITLE */
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title span {
+  color: #d62828;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.section-title h2 {
+  font-size: 2.2rem;
+  margin-top: 10px;
+}
+
+/* GRID */
+.rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}

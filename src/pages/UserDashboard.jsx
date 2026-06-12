@@ -1,202 +1,181 @@
-import React, { useEffect, useState } from "react";
-import { useAuth } from "../context/AuthContext";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function UserDashboard() {
-  const { userlogged } = useAuth();
-  const [user, setUser] = useState({});
-  const [notifications, setNotifications] = useState([]);
-  const [availableBeds, setAvailableBeds] = useState([]);
+  const [rooms, setRooms] = useState([]);
+  const [selectedRoom, setSelectedRoom] = useState(null);
+  const [selectedBed, setSelectedBed] = useState("");
   const [requests, setRequests] = useState([]);
 
+  const userId = localStorage.getItem("userId");
+
   useEffect(() => {
-    loadUser();
-    loadBeds();
-    loadRequests();
+    fetchRooms();
+    fetchRequests();
   }, []);
 
-    const loadUser = async () => {
-    try {
-      const res = await axios.get("/api/user/profile");
-      setUser(res.data);
-    } catch (err) {
-      console.error(err);
-    }
+  const fetchRooms = async () => {
+    const res = await axios.get("http://localhost:5000/api/bed-requests/available");
+    setRooms(res.data);
   };
 
-  const loadBeds = async () => {
-    try {
-      const res = await axios.get("/api/beds/available");
-      setAvailableBeds(res.data);
-    } catch (err) {
-      console.error(err);
-    }
+  const fetchRequests = async () => {
+    const res = await axios.get(
+      `http://localhost:5000/api/bed-requests/my-requests${userId}`
+    );
+    setRequests(res.data);
   };
 
-  const loadRequests = async () => {
-    try {
-      const res = await axios.get("/api/bed-requests/my");
-      setRequests(res.data);
-
-      const notif = res.data
-        .filter(
-          (item) =>
-            item.status === "approved" || item.status === "rejected"
-        )
-        .map((item) => ({
-          id: item.id,
-          message: `Your request for Room ${item.room_number} Bed ${item.bed_number} was ${item.status}`
-        }));
-
-      setNotifications(notif);
-    } catch (err) {
-      console.error(err);
+  const submitRequest = async () => {
+    if (!selectedRoom || !selectedBed) {
+      alert("Please select room and bed");
+      return;
     }
+
+    await axios.post("http://localhost:5000/api/requests", {
+      user_id: userId,
+      room_number: selectedRoom.room_number,
+      bed_number: selectedBed,
+    });
+
+    alert("Booking request submitted!");
+    setSelectedBed("");
+    fetchRequests();
   };
 
-  const bookBed = async (roomNumber, bedNumber) => {
-    try {
-      await axios.post("/api/bed-requests", {
-        room_number: roomNumber,
-        bed_number: bedNumber
-      });
-
-      alert("Booking request submitted.");
-      loadRequests();
-    } catch (err) {
-      alert(err.response?.data?.message || "Error booking bed");
-    }
-  };
   return (
-    <div className="container mt-4">
+    <div className="min-h-screen bg-gray-100 p-6">
+      <div className="max-w-6xl mx-auto">
+        <h1 className="text-3xl font-bold mb-8">
+          Dormitory Room Booking
+        </h1>
 
-      {/* Header */}
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2>Dormitory Dashboard</h2>
+        {/* Rooms */}
+        <div className="bg-white rounded-lg shadow p-6 mb-8">
+          <h2 className="text-xl font-semibold mb-4">
+            Available Rooms
+          </h2>
 
-        <div className="d-flex gap-4">
-          <div>
-            🔔 {notifications.length}
-          </div>
-
-          <div>
-            👤 {user.name}
-          </div>
-        </div>
-      </div>
-
-      {/* Notifications */}
-      <div className="card mb-4">
-        <div className="card-header">
-          Notifications
-        </div>
-
-        <div className="card-body">
-          {notifications.length === 0 ? (
-            <p>No notifications</p>
-          ) : (
-            notifications.map((n) => (
-              <div key={n.id} className="alert alert-info">
-                {n.message}
+          <div className="grid md:grid-cols-3 gap-4">
+            {rooms.map((room) => (
+              <div
+                key={room.id}
+                onClick={() => {
+                  setSelectedRoom(room);
+                  setSelectedBed("");
+                }}
+                className={`cursor-pointer border rounded-lg p-4 transition
+                ${
+                  selectedRoom?.id === room.id
+                    ? "border-blue-500 bg-blue-50"
+                    : "hover:border-blue-300"
+                }`}
+              >
+                <h3 className="font-bold text-lg">
+                  Room {room.room_number}
+                </h3>
+                <p className="text-gray-600">
+                  {room.available_beds} Beds Available
+                </p>
               </div>
-            ))
-          )}
-        </div>
-      </div>
-
-      {/* Available Beds */}
-      <div className="card mb-4">
-        <div className="card-header">
-          Available Beds
+            ))}
+          </div>
         </div>
 
-        <div className="card-body">
-          <table className="table">
-            <thead>
-              <tr>
-                <th>Room</th>
-                <th>Bed</th>
-                <th>Type</th>
-                <th></th>
-              </tr>
-            </thead>
+        {/* Bed Selection */}
+        {selectedRoom && (
+          <div className="bg-white rounded-lg shadow p-6 mb-8">
+            <h2 className="text-xl font-semibold mb-4">
+              Select Bed - Room {selectedRoom.room_number}
+            </h2>
 
-            <tbody>
-              {availableBeds.map((bed) => (
-                <tr key={bed.id}>
-                  <td>{bed.room_number}</td>
-                  <td>{bed.bed_number}</td>
-                  <td>{bed.bed_type}</td>
-
-                  <td>
-                    <button
-                      className="btn btn-primary btn-sm"
-                      onClick={() =>
-                        bookBed(
-                          bed.room_number,
-                          bed.bed_number
-                        )
-                      }
-                    >
-                      Book
-                    </button>
-                  </td>
-                </tr>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {selectedRoom.beds.map((bed) => (
+                <button
+                  key={bed}
+                  onClick={() => setSelectedBed(bed)}
+                  className={`p-4 rounded-lg border font-medium
+                  ${
+                    selectedBed === bed
+                      ? "bg-green-500 text-white"
+                      : "bg-gray-50 hover:bg-gray-100"
+                  }`}
+                >
+                  {bed}
+                </button>
               ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
+            </div>
 
-      {/* My Requests */}
-      <div className="card">
-        <div className="card-header">
-          My Bed Requests
-        </div>
+            <button
+              onClick={submitRequest}
+              className="mt-6 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+            >
+              Request Booking
+            </button>
+          </div>
+        )}
 
-        <div className="card-body">
-          <table className="table">
-            <thead>
-              <tr>
-                <th>Room</th>
-                <th>Bed</th>
-                <th>Status</th>
-                <th>Date</th>
-              </tr>
-            </thead>
+        {/* Requests */}
+        <div className="bg-white rounded-lg shadow p-6">
+          <h2 className="text-xl font-semibold mb-4">
+            My Booking Requests
+          </h2>
 
-            <tbody>
-              {requests.map((req) => (
-                <tr key={req.id}>
-                  <td>{req.room_number}</td>
-                  <td>{req.bed_number}</td>
-
-                  <td>
-                    <span
-                      className={`badge ${
-                        req.status === "approved"
-                          ? "bg-success"
-                          : req.status === "rejected"
-                          ? "bg-danger"
-                          : "bg-warning"
-                      }`}
-                    >
-                      {req.status}
-                    </span>
-                  </td>
-
-                  <td>
-                    {new Date(req.created_at)
-                      .toLocaleDateString()}
-                  </td>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse">
+              <thead>
+                <tr className="bg-gray-100">
+                  <th className="p-3 text-left">Room</th>
+                  <th className="p-3 text-left">Bed</th>
+                  <th className="p-3 text-left">Status</th>
+                  <th className="p-3 text-left">Date</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+
+              <tbody>
+                {requests.map((req) => (
+                  <tr
+                    key={req.id}
+                    className="border-t"
+                  >
+                    <td className="p-3">
+                      {req.room_number}
+                    </td>
+                    <td className="p-3">
+                      {req.bed_number}
+                    </td>
+                    <td className="p-3">
+                      <span
+                        className={`px-3 py-1 rounded-full text-sm
+                        ${
+                          req.status === "approved"
+                            ? "bg-green-100 text-green-700"
+                            : req.status === "rejected"
+                            ? "bg-red-100 text-red-700"
+                            : "bg-yellow-100 text-yellow-700"
+                        }`}
+                      >
+                        {req.status}
+                      </span>
+                    </td>
+                    <td className="p-3">
+                      {new Date(
+                        req.created_at
+                      ).toLocaleDateString()}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+
+            {requests.length === 0 && (
+              <p className="text-center text-gray-500 py-6">
+                No booking requests yet
+              </p>
+            )}
+          </div>
         </div>
       </div>
-
     </div>
   );
-};
-
+}

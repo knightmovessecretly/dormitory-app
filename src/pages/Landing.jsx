@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 //import {Navbar } from "../components/Navbar";
 import "./Landing.css";
 import Navbar from "../components/Navbar";
@@ -6,7 +6,8 @@ import Navbar from "../components/Navbar";
 //import soloBedroom from './assets/images/bedroomSolo.png';
 import AboutUsPreview from "./AboutUsPreview";
 export default function Landing() {
-const rooms = [
+ const navigate = useNavigate();
+  const rooms = [
   {
     id: 1,
     name: "Solo Bedroom",
@@ -39,6 +40,10 @@ const rooms = [
   },
 ];
 
+  const handleExplore = () => {
+    navigate("/explore");
+  };
+
   return (
     <div className="landing-page">
 
@@ -47,69 +52,106 @@ const rooms = [
 
       </header>
       {/* HERO */}
+
 <section
   id="home"
-  className="hero-section relative min-h-screen bg-[#1a0000] text-[#ffecec]"
->  <div className="container mx-auto px-4 py-16 lg:py-24">
-   
+  className="hero-section relative min-h-screen  bg-[#1a0000] text-[#ffecec]"
+>
+  {/* Optional dark overlay if your background image is bright */}
+
+  <div className="absolute inset-0 bg-black/20 z-0" />
+
+  <div className="container relative z-20 mx-auto px-4 py-16 lg:py-24">
+
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      
+
       {/* LEFT CONTENT */}
-      <div className="text-center lg:text-left">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-          Exclusive Female Dorm
-        </h1>
+      <div className="relative text-center lg:text-left">
 
-        <p className="mt-6 text-sm md:text-base lg:text-lg text-[#ffecec]/80 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-          Dormitoryana has over 90 rooms with different pricing and room configurations.
-          Each room is unique with en-suite bathrooms. Ocular visits are by appointment.
-        </p>
+        {/* Decorative SVG Logo */}
+        {/* Actual Content */}
+        <div className="relative z-10">
+          {/* Decorative SVG Logo */}
+<div
+  className="
+    absolute
+    top-0          {/* Changed from -top-20 */}
+    left-0         {/* Changed from -left-20 */}
+    lg:top-0       {/* Changed from lg:-top-28 */}
+    lg:left-0      {/* Changed from lg:-left-32 */}
+    z-0
+    pointer-events-none
+    opacity-15
+    select-none
+  "
+>
+  <img
+    src="/dormitoryana-logo.svg"
+    alt=""
+    className="
+      w-[320px]
+      md:w-[500px]
+      lg:w-[750px]
+      max-w-none
+      drop-shadow-[0_0_40px_rgba(255,77,77,0.25)]
+    "
+  />
+</div>
 
-        <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-          
-          <Link
-            to="/rooms"
-            className="
-              px-6 py-3 rounded-xl font-semibold
-              bg-gradient-to-r from-[#ff0000] to-[#b30000]
-              hover:from-[#ff4d4d] hover:to-[#ff0000]
-              shadow-lg shadow-red-900/40
-              transition
-            "
-          >
-            Explore Rooms
-          </Link>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-pink-500">
+            Exclusive Female Dorm
+          </h1>
 
-          <Link
-            to="/about"
-            className="
-              px-6 py-3 rounded-xl font-semibold
-              border border-[#ff4d4d]/40
-              bg-[#320000]/40
-              hover:bg-[#500000]/60
-              transition
-            "
-          >
-            Learn More
-          </Link>
+          <p className="mt-6 text-sm md:text-base lg:text-lg text-[#ffecec]/80 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            Dormitoryana has over 90 rooms with different pricing and room
+            configurations. Each room is unique with en-suite bathrooms.
+            Ocular visits are by appointment.
+          </p>
 
+          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <Link
+              to="/rooms"
+              className="
+                px-6 py-3 rounded-xl font-semibold
+                bg-gradient-to-r from-[#ff0000] to-[#b30000]
+                hover:from-[#ff4d4d] hover:to-[#ff0000]
+                shadow-lg shadow-red-900/40
+                transition
+              "
+            >
+              Explore Rooms
+            </Link>
+
+            <Link
+              to="/about"
+              className="
+                px-6 py-3 rounded-xl font-semibold
+                border border-[#ff4d4d]/40
+                bg-[#320000]/40
+                hover:bg-[#500000]/60
+                transition
+              "
+            >
+              Learn More
+            </Link>
+          </div>
         </div>
       </div>
 
-      {/* RIGHT FEATURE CARDS (YOUR STYLE RETAINED) */}
-      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-2 gap-4">
-
+      {/* RIGHT FEATURE CARDS */}
+      <div className="grid grid-cols-2 gap-4">
         {["Safe", "Cozy", "Affordable", "Exclusive"].map((item, index) => (
           <button
             key={item}
             className="
               group relative overflow-hidden
-              w-full
-              px-5 py-5
-              rounded-2xl
+              w-full px-5 py-5 rounded-2xl
 
               border border-[#ff4d4d]/30
-              bg-gradient-to-br from-[#320000]/90 via-[#500000]/70 to-[#1a0000]/90
+              bg-gradient-to-br
+              from-[#320000]/90
+              via-[#500000]/70
+              to-[#1a0000]/90
 
               backdrop-blur-xl
               text-left text-[#ffecec]
@@ -119,7 +161,6 @@ const rooms = [
 
               transition-all duration-500
               hover:scale-105 hover:-translate-y-1
-
               active:scale-95
             "
             style={{
@@ -127,10 +168,18 @@ const rooms = [
               animationDelay: `${index * 0.3}s`,
             }}
           >
-            {/* glow */}
-            <span className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-[#ff0000]/10 via-[#ff4d4d]/25 to-[#ff0000]/10 transition" />
+            <span
+              className="
+                absolute inset-0
+                opacity-0 group-hover:opacity-100
+                bg-gradient-to-r
+                from-[#ff0000]/10
+                via-[#ff4d4d]/25
+                to-[#ff0000]/10
+                transition
+              "
+            />
 
-            {/* content */}
             <span className="relative z-10 flex items-center gap-3">
               <span className="text-xl">✦</span>
               <span className="group-hover:tracking-widest transition">
@@ -139,13 +188,11 @@ const rooms = [
             </span>
           </button>
         ))}
-
       </div>
 
     </div>
   </div>
 
-  {/* FLOAT ANIMATION (kept) */}
   <style>
     {`
       @keyframes float {
@@ -155,21 +202,25 @@ const rooms = [
       }
     `}
   </style>
-</section>
+</section>      
 
 
-      {/* FEATURES */}
-<section className="features-section py-20 bg-slate-50">
+      {/* FEATURES  #ff6060 */}
+<section className="features-section py-20 bg-slate-50"
+      style={{
+        background:
+          "linear-gradient(to right, #f9c2c2 0%, #ffe3e3 40%, #ffffff 100%)",
+      }}
+
+>
   <div className="container max-w-6xl mx-auto px-6">
 
     {/* TITLE */}
     <div className="section-title text-center mb-12">
-      <span className="text-[#bb0303] font-semibold tracking-[0.3em] text-sm">
-        WHY CHOOSE US
-      </span>
-      <h2 className="text-3xl md:text-4xl font-bold mt-3">
-        Modern Dormitory Living
-      </h2>
+
+      <h3 className="text-3xl md:text-4xl font-bold mt-3 bg-gradient-to-r from-pink-500 to-rose-600 bg-clip-text text-transparent">
+         Modern Dormitory Living
+      </h3>
     </div>
 
     {/* FEATURES GRID */}
@@ -271,7 +322,8 @@ const rooms = [
 </section>
 
       {/* ROOMS */}
-<section className="rooms-section" id="rooms">
+<section className="rooms-section" id="rooms bg-gradient-to-r from-pink-600 to-rose-800 " 
+>
 
   <div className="container">
 
@@ -308,7 +360,7 @@ const rooms = [
 
             </div>
 
-            <button className="btn-primary full-btn">
+            <button   onClick={handleExplore}    className="btn-primary full-btn">
               Reserve Room
             </button>
 
@@ -336,63 +388,12 @@ const rooms = [
           </h2>
 
           <p>
-            Register today and experience comfortable dormitory living.
+           Get your room today and experience comfortable dormitory living.
           </p>
-
-          <Link to="/register" className="btn-primary">
-            Register Now
-          </Link>
 
         </div>
 
       </section>
-
-      {/* FOOTER */}
-      <footer className="footer" id="contact">
-
-        <div className="container footer-grid">
-
-          <div>
-
-            <h3>Dormitory.</h3>
-
-            <p>
-              Comfortable and affordable accommodations
-              for students and professionals.
-            </p>
-
-          </div>
-
-          <div>
-
-            <h4>Quick Links</h4>
-
-            <ul>
-              <li>Home</li>
-              <li>Rooms</li>
-              <li>Services</li>
-              <li>About</li>
-            </ul>
-
-          </div>
-
-          <div>
-
-            <h4>Contact</h4>
-
-            <p>Email: dormitory@email.com</p>
-            <p>Phone: +63 912 345 6789</p>
-
-          </div>
-
-        </div>
-
-        <div className="footer-bottom">
-          © 2026 Dormitory Management System
-        </div>
-
-      </footer>
-
     </div>
   );
 }

@@ -93,6 +93,7 @@ export default function TiltCard({ service, onBook }) {
           object-cover
           opacity-30
           scale-110
+          text-rose-600
         "
         style={{
           transform: "translateZ(-20px)",
@@ -140,6 +141,7 @@ export default function TiltCard({ service, onBook }) {
     leading-tight
 
     drop-shadow-sm
+    text-pink-500
   "
 >
   {service.title}

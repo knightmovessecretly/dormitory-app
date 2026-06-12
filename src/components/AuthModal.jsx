@@ -13,7 +13,6 @@ export default function AuthModal({ open, onClose }) {
         {/* Tabs */}
         <div className="flex gap-4 mb-4">
           <button onClick={() => setMode("login")}>Login</button>
-          <button onClick={() => setMode("register")}>Register</button>
         </div>
 
         {/* LOGIN */}

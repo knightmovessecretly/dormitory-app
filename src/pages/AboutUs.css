@@ -1,6 +1,7 @@
 .about-section {
   padding: 80px 20px;
-  background: #f9f9f9;
+  background: linear-gradient(to right, #f9c2c2, #ffffff);
+
 }
 
 .about-container {

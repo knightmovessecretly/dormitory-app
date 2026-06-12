@@ -7,7 +7,10 @@ export default function AboutUsPreview() {
   <div className="about-container">
 
     <div className="section-header">
-      <span className="section-tag">ABOUT US</span>
+      <h1 className="text-5xl font-bold text-pink-500 mb-4">
+        About Us
+      </h1>      
+
       <h2>The History of SMRC / Dormitoryana</h2>
     </div>
 
@@ -139,12 +142,7 @@ export default function AboutUsPreview() {
         We proudly share this legacy with our staff, employees,
         consultants, and the community we continue to serve.
       </p>
-
-      <div className="signature">
-        <p>Jonelle R. de Guzman</p>
-        <span>11-15-18</span>
-      </div>
-    </div>
+     </div>
 
   </div>
 </section>

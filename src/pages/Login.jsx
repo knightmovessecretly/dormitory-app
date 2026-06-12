@@ -51,7 +51,7 @@ export default function Login() {
 
       navigate(
         userData.role === "admin"
-          ? "/admin"
+          ? "/smrc/dormitoryana/admin/management"
           : "/user"
       );
     } catch (error) {

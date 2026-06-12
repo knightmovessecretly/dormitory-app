@@ -43,10 +43,9 @@ export default function ServiceGalleryModal({ service, onClose }) {
         </button>
 
         {/* TITLE */}
-        <div className="p-4 font-bold text-lg border-b">
-          {service.title} Gallery
-        </div>
-
+      <div className="p-4 font-bold text-lg border-b text-rose-600">
+        {service.title}
+      </div>
         {/* IMAGE */}
         <div className="relative">
 
