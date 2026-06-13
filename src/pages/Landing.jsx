@@ -360,9 +360,6 @@ export default function Landing() {
 
             </div>
 
-            <button   onClick={handleExplore}    className="btn-primary full-btn">
-              Reserve Room
-            </button>
 
           </div>
 
@@ -392,7 +389,6 @@ export default function Landing() {
           </p>
 
         </div>
-
       </section>
     </div>
   );
