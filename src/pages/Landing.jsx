@@ -38,6 +38,17 @@ export default function Landing() {
     available: 2,
     capacity: "Good for 2-3 persons",
   },
+    {
+      id: 4,
+      roomType: "Quad Room",
+      name: "Quadruple Occupancy Room",
+      description:
+        "Affordable shared living space ideal for groups or barkadas.",
+      images:  "/quadroom4.jpg",
+      available:2,      
+      capacity: "Good for 4 persons",
+    },
+
 ];
 
   const handleExplore = () => {

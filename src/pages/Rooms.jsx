@@ -83,12 +83,13 @@ export default function Rooms() {
       ],
       availableBeds: 0,
     },
-  ]);
+  ]);  
   useEffect(() => {
     const fetchAvailability = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/rooms/availability/type"
+//          "http://localhost:5000/api/rooms/availability/type"
+          "http://192.168.122.40/api/rooms/availability/type"
         );
 
         setRooms((prevRooms) =>
