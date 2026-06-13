@@ -154,7 +154,7 @@ export default function AdminDashboard() {
         try {
             if (editingId) {
                 // UPDATE / PUT action
-                await axios.put(`${API_BASE_URL}/${editingId}`, formData, {
+                await axios.put(`${API_URL}news/${editingId}`, formData, {
                     headers: { "Content-Type": "multipart/form-data" },
                 });
                 alert("News updated successfully!");

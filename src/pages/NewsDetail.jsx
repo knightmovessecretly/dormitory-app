@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Helmet } from "react-helmet-async";
-import API_URL from '../config';
+import config from "../config";
+const { API_URL, BASE_URL } = config;
 
 export default function NewsDetail() {
     const { slug } = useParams();
@@ -47,7 +48,7 @@ export default function NewsDetail() {
     }
 
     const imageUrl = news.featured_image
-        ? `${BASE_URL_URL}${news.featured_image}`
+        ? `${BASE_URL}${news.featured_image}`
         : "/placeholder.jpg";
 
     return (

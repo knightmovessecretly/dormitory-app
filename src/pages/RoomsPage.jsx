@@ -2,7 +2,7 @@ import { useEffect, useState, useMemo } from "react";
 import axios from "axios";
 
 import config from "../config";
-const { API_URL, BASE_URL } = config;
+const { API_URL } = config;
 
 
 export default function RoomsPage() {
