@@ -89,7 +89,7 @@ export default function Rooms() {
       try {
         const res = await axios.get(
 //          "http://localhost:5000/api/rooms/availability/type"
-          "http://192.168.122.40:5000/api/rooms/availability/type"
+          "http://173.208.142.58:10081/api/rooms/availability/type"
         );
 
         setRooms((prevRooms) =>
@@ -97,7 +97,8 @@ export default function Rooms() {
             const match = res.data.find(
               (item) => item.room_type === room.roomType
             );
-
+            console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            console.log(res.data);
             return {
               ...room,
               availableBeds: match
