@@ -6,8 +6,11 @@ import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Image from "@tiptap/extension-image";
 import Link from "@tiptap/extension-link";
+import config from "../config";
+const { API_URL, BASE_URL } = config;
 
-const API_BASE_URL = "http://localhost:5000/api/news";
+const API_BASE_URL = `${API_URL}news` ;
+//const API_BASE_URL = "http://localhost:5000/api/news";
 
 export default function AdminDashboard() {
     const [articles, setArticles] = useState([]);

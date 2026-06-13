@@ -1,6 +1,10 @@
 import { useEffect, useState, useMemo } from "react";
 import axios from "axios";
 
+import config from "../config";
+const { API_URL, BASE_URL } = config;
+
+
 export default function RoomsPage() {
   const [rooms, setRooms] = useState([]);
   const [search, setSearch] = useState("");
@@ -10,7 +14,7 @@ export default function RoomsPage() {
   const fetchRooms = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:5000/api/rooms");
+      const res = await axios.get(`${API_URL}rooms`);
       setRooms(Array.isArray(res.data) ? res.data : []);
     } catch (err) {
       console.log(err);
@@ -26,7 +30,7 @@ export default function RoomsPage() {
 
   const updateOccupied = async (roomId, newValue) => {
     try {
-      await axios.put(`http://localhost:5000/api/rooms/${roomId}`, {
+      await axios.put(`${API_URL}rooms/${roomId}`, {
         occupied_beds: newValue,
       });
 

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Helmet } from "react-helmet-async";
+import API_URL from '../config';
 
 export default function NewsDetail() {
     const { slug } = useParams();
@@ -16,13 +17,13 @@ export default function NewsDetail() {
     const fetchNews = async () => {
         try {
             const res = await axios.get(
-                `http://localhost:5000/api/news/${slug}`
+                `${API_URL}news/${slug}`
             );
 
             setNews(res.data);
 
             const related = await axios.get(
-                `http://localhost:5000/api/news`
+                `${API_URL}news`
             );
 
             setRelatedNews(
@@ -46,7 +47,7 @@ export default function NewsDetail() {
     }
 
     const imageUrl = news.featured_image
-        ? `http://localhost:5000${news.featured_image}`
+        ? `${BASE_URL_URL}${news.featured_image}`
         : "/placeholder.jpg";
 
     return (

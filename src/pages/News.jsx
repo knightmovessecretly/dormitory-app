@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-
+import config from "../config";
+const { API_URL, BASE_URL } = config;
 export default function NewsPage() {
   const [news, setNews] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/news").then((res) => setNews(res.data));
+    axios.get(`${API_URL}news`).then((res) => setNews(res.data));
   }, []);
 
   return (
@@ -58,7 +59,7 @@ export default function NewsPage() {
                 {/* IMAGE */}
                 <div className="overflow-hidden">
                   <img
-                    src={`http://localhost:5000${item.featured_image}`}
+                    src={`${BASE_URL}${item.featured_image}`}
                     alt={item.title}
                     className="
                       w-full

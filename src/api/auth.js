@@ -1,7 +1,9 @@
-const BASE_URL = "http://localhost:5000/api";
+
+import config from "../config";
+const { API_URL, BASE_URL } = config;
 
 export async function registerUser(data) {
-  const res = await fetch(`${BASE_URL}/users`, {
+  const res = await fetch(`${API_URL}users`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ ...data, role: "user" }),
@@ -11,7 +13,10 @@ export async function registerUser(data) {
 }
 
 export async function loginUser(data) {
-  const res = await fetch(`${BASE_URL}/auth/login`, {
+  console.log("qqqqqqqqqqqqqqqqqqqqqqqqq");
+  console.log(`${BASE_URL}auth/login`);
+  console.log(`${API_URL}auth/login`);
+  const res = await fetch(`${API_URL}auth/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),

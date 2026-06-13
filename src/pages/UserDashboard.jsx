@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import config from "../config";
+const { API_URL, BASE_URL } = config;
 export default function UserDashboard() {
   const [rooms, setRooms] = useState([]);
   const [selectedRoom, setSelectedRoom] = useState(null);
@@ -15,13 +16,13 @@ export default function UserDashboard() {
   }, []);
 
   const fetchRooms = async () => {
-    const res = await axios.get("http://localhost:5000/api/bed-requests/available");
+    const res = await axios.get(`${API_URL}bed-requests/available`);
     setRooms(res.data);
   };
 
   const fetchRequests = async () => {
     const res = await axios.get(
-      `http://localhost:5000/api/bed-requests/my-requests${userId}`
+      `${API_URL}/bed-requests/my-requests${userId}`
     );
     setRequests(res.data);
   };
@@ -32,7 +33,7 @@ export default function UserDashboard() {
       return;
     }
 
-    await axios.post("http://localhost:5000/api/requests", {
+    await axios.post(`${API_URL}requests`, {
       user_id: userId,
       room_number: selectedRoom.room_number,
       bed_number: selectedBed,

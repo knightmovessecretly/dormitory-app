@@ -44,11 +44,10 @@ export default function Landing() {
       name: "Quadruple Occupancy Room",
       description:
         "Affordable shared living space ideal for groups or barkadas.",
-      images:  "/quadroom4.jpg",
+      image:  "/images/quadroom4.jpg",
       available:2,      
       capacity: "Good for 4 persons",
     },
-
 ];
 
   const handleExplore = () => {
@@ -363,13 +362,6 @@ export default function Landing() {
 
             <small>{room.capacity}</small>
 
-            <div className="room-status">
- 
-              <span className="red-accent">
-                Only {room.available} Rooms Left
-              </span>
-
-            </div>
 
 
           </div>

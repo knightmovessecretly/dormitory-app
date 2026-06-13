@@ -3,6 +3,8 @@ import RoomCard from "../components/RoomCard";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import config from "../config";
+const { API_URL, BASE_URL } = config;
 
 export default function Rooms() {
   const navigate = useNavigate();
@@ -87,18 +89,18 @@ export default function Rooms() {
   useEffect(() => {
     const fetchAvailability = async () => {
       try {
+        console.log("------------------");
+        console.log(API_URL);
         const res = await axios.get(
-//          "http://localhost:5000/api/rooms/availability/type"
-          "http://173.208.142.58:10081/api/rooms/availability/type"
+          `${API_URL}rooms/availability/type`
         );
-
+        console.log("LLLLLLLLLLLLLLLL");
+        console.log(`${API_URL}rooms/availability/type`);
         setRooms((prevRooms) =>
           prevRooms.map((room) => {
             const match = res.data.find(
               (item) => item.room_type === room.roomType
             );
-            console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-            console.log(res.data);
             return {
               ...room,
               availableBeds: match
