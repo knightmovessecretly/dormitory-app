@@ -5,8 +5,8 @@ const API_URL =
 
 const BASE_URL =
   window.location.hostname === 'localhost'
-    ? 'http://localhost:5000/'
-    : 'http://173.208.142.58:10081/';
+    ? 'http://localhost:5000'
+    : 'http://173.208.142.58:10081';
 
 export default {
   API_URL,
