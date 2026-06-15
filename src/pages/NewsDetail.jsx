@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom"; // Added Link for related articles
 import axios from "axios";
 import { Helmet } from "react-helmet-async";
 import config from "../config";
@@ -99,7 +99,7 @@ export default function NewsDetail() {
                             <span>By {news.author}</span>
                             <span>
                                 {new Date(
-                                    news.published_at
+                                    news.published_at || Date.now()
                                 ).toLocaleDateString()}
                             </span>
                         </div>
@@ -121,21 +121,20 @@ export default function NewsDetail() {
                             <h2 className="text-2xl font-bold mb-4">
                                 Summary
                             </h2>
-
-                            <p className="text-xl text-gray-600">
-                                {news.summary}
-                            </p>
+                            {/* FIX: Render text fields safely if they contain style tags */}
+                            <p 
+                                className="text-xl text-gray-600 leading-relaxed"
+                                dangerouslySetInnerHTML={{ __html: news.summary }}
+                            />
                         </div>
 
                         {/* CONTENT */}
                         <div className="bg-white rounded-2xl shadow p-8">
-                            <div className="prose prose-lg max-w-none">
-                                {news.content
-                                    ?.split("\n")
-                                    .map((p, i) => (
-                                        <p key={i}>{p}</p>
-                                    ))}
-                            </div>
+                            {/* FIX: Dropped the string splitter wrapper and let your Tailwind prose class render the native rich text elements directly */}
+                            <div 
+                                className="prose prose-lg max-w-none prose-indigo prose-headings:text-slate-900"
+                                dangerouslySetInnerHTML={{ __html: news.content }}
+                            />
                         </div>
 
                         {/* SHARE */}
@@ -212,18 +211,19 @@ export default function NewsDetail() {
                             <div className="space-y-4">
                                 {relatedNews.slice(0, 5).map(
                                     (article) => (
-                                        <div
+                                        <Link
+                                            to={`/news/${article.slug}`}
                                             key={article.id}
-                                            className="border-b pb-3"
+                                            className="block border-b pb-3 group"
                                         >
-                                            <h4 className="font-semibold hover:text-blue-600 cursor-pointer">
+                                            <h4 className="font-semibold group-hover:text-blue-600 transition-colors cursor-pointer">
                                                 {article.title}
                                             </h4>
 
                                             <p className="text-sm text-gray-500">
                                                 {article.category}
                                             </p>
-                                        </div>
+                                        </Link>
                                     )
                                 )}
                             </div>

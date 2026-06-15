@@ -3,7 +3,9 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import config from "../config";
+
 const { API_URL, BASE_URL } = config;
+
 export default function NewsPage() {
   const [news, setNews] = useState([]);
 
@@ -11,22 +13,23 @@ export default function NewsPage() {
     axios.get(`${API_URL}news`).then((res) => setNews(res.data));
   }, []);
 
+  // Helper function to turn "<p>Hello <b>World</b></p>" into "Hello World"
+  const stripHtml = (htmlString) => {
+    if (!htmlString) return "";
+    return htmlString.replace(/<\/?[^>]+(>|$)/g, "");
+  };
+
   return (
     <div
       className="min-h-screen text-slate-800"
       style={{
-        background:
-          "linear-gradient(to right, #f9c2c2 0%, #ffe3e3 40%, #ffffff 100%)",
+        background: "linear-gradient(to right, #f9c2c2 0%, #ffe3e3 40%, #ffffff 100%)",
       }}
     >
       {/* HERO */}
       <div className="text-center py-16 px-4">
-  <h1 className="text-5xl font-bold text-pink-500 mb-3">
-    Dormitory News
-  </h1>
-        <p className="text-slate-600">
-          Updates, announcements, and important information
-        </p>
+        <h1 className="text-5xl font-bold text-pink-500 mb-3">Dormitory News</h1>
+        <p className="text-slate-600">Updates, announcements, and important information</p>
       </div>
 
       {/* GRID */}
@@ -41,51 +44,28 @@ export default function NewsPage() {
             >
               <Link
                 to={`/news/${item.slug}`}
-                className="
-                  block
-                  rounded-3xl
-                  overflow-hidden
-                  bg-white/70
-                  backdrop-blur-xl
-                  border
-                  border-gray-200
-                  shadow-md
-                  hover:shadow-xl
-                  hover:-translate-y-1
-                  transition-all
-                  duration-300
-                "
+                className="block rounded-3xl overflow-hidden bg-white/70 backdrop-blur-xl border border-gray-200 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               >
                 {/* IMAGE */}
                 <div className="overflow-hidden">
                   <img
                     src={`${BASE_URL}${item.featured_image}`}
                     alt={item.title}
-                    className="
-                      w-full
-                      h-52
-                      object-cover
-                      transform
-                      hover:scale-105
-                      transition duration-500
-                    "
+                    className="w-full h-52 object-cover transform hover:scale-105 transition duration-500"
                   />
                 </div>
 
                 {/* CONTENT */}
                 <div className="p-5">
-                  <h2 className="font-bold text-xl text-slate-900 mb-2">
-                    {item.title}
-                  </h2>
+                  <h2 className="font-bold text-xl text-slate-900 mb-2">{item.title}</h2>
 
-                  <p className="text-slate-600 text-sm leading-relaxed">
-                    {item.summary}
-                  </p>
+                  {/* Clean text summary without code tags appearing */}
+<p 
+  className="text-slate-600 text-sm leading-relaxed line-clamp-3"
+  dangerouslySetInnerHTML={{ __html: item.summary }} 
+/>
 
-                  {/* subtle read hint */}
-                  <div className="mt-4 text-sm text-pink-500 font-medium">
-                    Read more →
-                  </div>
+                  <div className="mt-4 text-sm text-pink-500 font-medium">Read more →</div>
                 </div>
               </Link>
             </motion.div>
