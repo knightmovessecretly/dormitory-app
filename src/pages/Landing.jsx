@@ -1,9 +1,6 @@
 import { Link,useNavigate } from "react-router-dom";
-//import {Navbar } from "../components/Navbar";
 import "./Landing.css";
 import Navbar from "../components/Navbar";
-//import image1 from "../pages/public/images/";
-//import soloBedroom from './assets/images/bedroomSolo.png';
 import AboutUsPreview from "./AboutUsPreview";
 export default function Landing() {
  const navigate = useNavigate();
@@ -44,25 +41,17 @@ export default function Landing() {
       name: "Quadruple Occupancy Room",
       description:
         "Affordable shared living space ideal for groups or barkadas.",
-      image:  "/images/quadroom4.jpg",
+      image:  "/quad3.png",
       available:2,      
       capacity: "Good for 4 persons",
     },
 ];
-
-  const handleExplore = () => {
-    navigate("/explore");
-  };
-
   return (
     <div className="landing-page">
-
       {/* NAVBAR */}
       <header className="navbar">
-
       </header>
       {/* HERO */}
-
 <section
   id="home"
   className="hero-section relative min-h-screen  bg-[#1a0000] text-[#ffecec]"
@@ -361,7 +350,6 @@ export default function Landing() {
             <p>{room.description}</p>
 
             <small>{room.capacity}</small>
-
 
 
           </div>

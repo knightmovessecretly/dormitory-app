@@ -72,9 +72,10 @@ export default function Rooms() {
       description:
         "Affordable shared living space ideal for groups or barkadas.",
       images: [
-        "/quadbedroom3.jpg",
-        "/quadbed2.jpg",
-        "/quadroom4.jpg",
+        "/quad3.png",
+        "/quad1.png",
+        "/quad2.png",
+        "/quad4.png",
       ],
       capacity: "Good for 4 persons",
       amenities: [
