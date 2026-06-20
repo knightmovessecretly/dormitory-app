@@ -372,7 +372,7 @@ export default function Landing() {
         <div className="container cta-content">
 
           <h2>
-            Ready To Reserve Your Room?
+            Ready for your Second Home..
           </h2>
 
           <p>
