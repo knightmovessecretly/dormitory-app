@@ -1,14 +1,20 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Bell, User, LogOut, Menu, X } from "lucide-react";
+import {
+  Bell,
+  User,
+  LogOut,
+  Menu,
+  X,
+  Newspaper,
+  Bed,
+} from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
-
   const { user, logout } = useAuth();
-
   const isAdmin = user?.role === "admin";
 
   return (
@@ -37,11 +43,8 @@ export default function Navbar() {
             <Link to="/about" className="hover:text-blue-600">About Us</Link>
             <Link to="/faq" className="hover:text-blue-600">FAQ</Link>
 
-
             {!user ? (
-              <>
-
-              </>
+              <></>
             ) : (
               <>
                 {/* Notifications */}
@@ -77,27 +80,27 @@ export default function Navbar() {
                     <div className="absolute right-0 mt-2 w-52 bg-white border rounded-lg shadow-lg">
 
                       <div className="px-4 py-3 border-b">
-                        <p className="font-medium">
-                          {user.name}
-                        </p>
-                        <p className="text-xs text-gray-500">
-                          {user.email}
-                        </p>
+                        <p className="font-medium">{user.name}</p>
+                        <p className="text-xs text-gray-500">{user.email}</p>
                       </div>
 
+
+                      {/* ✅ UPDATED: News with icon */}
                       <Link
-                        to="/profile"
+                        to="/smrc/dormitoryana/admin?tab=news"
                         className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100"
                       >
-                        <User size={16} />
-                        My Profile
+                        <Newspaper size={16} />
+                        News
                       </Link>
 
+                      {/* ✅ UPDATED: Rooms with icon */}
                       <Link
-                        to="/my-bookings"
-                        className="block px-4 py-2 hover:bg-gray-100"
+                        to="/smrc/dormitoryana/admin/?tab=rooms"
+                        className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100"
                       >
-                        My Reservations
+                        <Bed size={16} />
+                        Room Inventory
                       </Link>
 
                       <button
@@ -116,10 +119,7 @@ export default function Navbar() {
           </div>
 
           {/* MOBILE BUTTON */}
-          <button
-            onClick={() => setOpen(!open)}
-            className="md:hidden"
-          >
+          <button onClick={() => setOpen(!open)} className="md:hidden">
             {open ? <X size={24} /> : <Menu size={24} />}
           </button>
 
@@ -148,22 +148,28 @@ export default function Navbar() {
             )}
 
             {!user ? (
-              <>
-              </>
+              <></>
             ) : (
               <>
+
+                {/* ✅ MOBILE: News with icon */}
                 <Link
-                  to="/profile"
+                  to="/smrc/dormitoryana/admin?tab=news"
+                  className="flex items-center gap-2"
                   onClick={() => setOpen(false)}
                 >
-                  My Profile
+                  <Newspaper size={16} />
+                  News
                 </Link>
 
+                {/* ✅ MOBILE: Rooms with icon */}
                 <Link
-                  to="/notifications"
+                  to="/smrc/dormitoryana/admin/?tab=rooms"
+                  className="flex items-center gap-2"
                   onClick={() => setOpen(false)}
                 >
-                  Notifications
+                  <Bed size={16} />
+                  Room Inventory
                 </Link>
 
                 <button
@@ -177,7 +183,6 @@ export default function Navbar() {
                 </button>
               </>
             )}
-
           </div>
         )}
       </div>
