@@ -48,7 +48,7 @@ export default function Services() {
       "/images2/community2.jpg",
       "/images2/community3.jpg",
       "/images2/community4.jpg",
-      "/images2/lobbyl.jpg",
+      "/images/lobbyl.jpg",
       
     ],
   },
