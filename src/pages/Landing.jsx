@@ -41,7 +41,7 @@ export default function Landing() {
       name: "Quadruple Occupancy Room",
       description:
         "Affordable shared living space ideal for groups or barkadas.",
-      image:  "/quad3.png",
+      image:  "/images/quad3.png",
       available:2,      
       capacity: "Good for 4 persons",
     },

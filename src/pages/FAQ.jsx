@@ -8,18 +8,39 @@ export default function FAQ() {
       answer: "Rates depend on room type and occupancy.",
     },
     {
-      question: "Is WiFi included?",
-      answer: "Yes, high-speed WiFi is included.",
+      question: "What room types are available?",
+      answer: "Solo, Double, Triple, Quadroom",
     },
     {
-      question: "Are visitors allowed?",
-      answer: "Visitors are allowed during visiting hours.",
+      question: "What are your amenities and services inside the dormitory",
+      answer: "We have our air-conditioned libray, fitness gym and prayer room.  Likewise we have our student lounge area ,  study areas, spacious courtyard and garden area, common kitchen area for cooking and students common dining areas. ",
     },
     {
-      question: "Is there 24/7 security?",
-      answer: "Yes, the dormitory is monitored 24/7.",
+      question: "How do i schedule actual viewing and occular inspection of rooms?",
+      answer: "Just get in touch with us and we will schedule you for a tour of our facilities anytime from Monday to Friday only.",
     },
+    {
+      question: "Whats the curfew? Are visitors allowed?",
+      answer: 'Curfew for dormers is at 10pm unless there is an advanced notrice or request. Visitors are allowed in the lounge area only.  Bo overnight guest. "Ladies only is strictly enforced at all times"',
+    },
+  {
+      question: "Whats are your safely and security measures?",
+      answer: '24/7 guard on duty. CCTV in hallways and major areas. Gated entry and exit points "',
+    },
+  {
+      question: "Is there a security deposit? Is it refundable?",
+      answer: 'Yes, usually 1 month deposit.  Refundable if no damages + 30 day notice given."',
+    },
+      {
+      question: "Can I cook inside the room?  ",
+      answer: 'No. Only in common kitchen .  Induction/rice cooker only.  No gas stoves allowed for fire safety."',
+    },
+
   ];
+
+
+
+
 
   const [active, setActive] = useState(null);
 
