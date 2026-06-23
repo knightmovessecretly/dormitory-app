@@ -4,14 +4,11 @@ import { FaFacebook, FaInstagram } from "react-icons/fa";
 
 export default function ContactUs() {
   return (
-    <div
-      className="min-h-screen px-6 py-20 text-slate-800"
+    <div  className="min-h-screen px-6 py-20 text-slate-800"
       style={{
         background: "linear-gradient(to right, #f9c2c2, #ffffff)",
       }}
     >
-
-
       <div className="max-w-xl mx-auto w-full">
         {/* HEADER (Now safely outside the box) */}
         <motion.div 
@@ -20,9 +17,7 @@ export default function ContactUs() {
           transition={{ duration: 0.5 }}
           className="text-center mb-6"
         >
-        <h1 className="text-5xl font-bold text-pink-500 mb-3">Contact Us</h1>
-
-        </motion.div>
+        <h1 className="text-5xl font-bold text-pink-500 mb-3">Contact Us</h1>       </motion.div>
 
         {/* CARD CONTAINER */}
         <motion.div
@@ -80,21 +75,7 @@ export default function ContactUs() {
 
           <hr className="border-slate-200/60" />
 
-          {/* SOCIAL LINKS & WEBSITE */}
           <div className="flex items-center justify-between gap-4">
-            <div>
-              <div className="flex gap-2.5">
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-xl bg-white flex items-center justify-center text-slate-600 hover:text-blue-600 hover:shadow-md transition border border-slate-100">
-                  <FaFacebook size={18} />
-                </a>
-                <a href="https://instagram.com/dormitoryanasmrc" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-xl bg-white flex items-center justify-center text-slate-600 hover:text-pink-500 hover:shadow-md transition border border-slate-100">
-                  <FaInstagram size={18} />
-                </a>
-                <a href="https://smrcdormitoryana.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-xl bg-white flex items-center justify-center text-slate-600 hover:text-cyan-500 hover:shadow-md transition border border-slate-100">
-                  <Globe size={18} />
-                </a>
-              </div>
-            </div>
             
             <div className="text-right">
               <a href="https://smrcdormitoryana.com" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-slate-500 hover:text-indigo-600 transition tracking-wider">
@@ -102,7 +83,6 @@ export default function ContactUs() {
               </a>
             </div>
           </div>
-
           {/* MAP */}
           <div className="rounded-2xl overflow-hidden border border-white/50 shadow-md">
             <iframe

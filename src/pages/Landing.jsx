@@ -3,27 +3,16 @@ import "./Landing.css";
 import Navbar from "../components/Navbar";
 import AboutUsPreview from "./AboutUsPreview";
 export default function Landing() {
- const navigate = useNavigate();
+const navigate = useNavigate();
   const rooms = [
-  {
-    id: 1,
-    name: "Solo Bedroom",
+  {  id: 1,  name: "Solo Bedroom",
     description:
       "Spacious room with modern furniture, air conditioning and study area.",
-    image:  "/images/bedroomSolo.png",
-      
-    available: 3,
-    capacity: "Good for 1 person",
-  },
-  {
-    id: 2,
-    name: "Double Bedroom",
-    description:
+    image:  "/images/bedroomSolo.png",  available: 3,  capacity: "Good for 1 person",  },
+  {  id: 2,  name: "Double Bedroom",  description:
       "Perfect shared room setup with comfortable beds and storage space.",
     image:  "/images/bedroomDouble.png",
-     
-    available: 5,
-    capacity: "Good for 2 persons",
+    available: 5,   capacity: "Good for 2 persons",
   },
   {
     id: 3,
@@ -52,25 +41,14 @@ export default function Landing() {
       <header className="navbar">
       </header>
       {/* HERO */}
-<section
-  id="home"
-  className="hero-section relative min-h-screen  bg-[#1a0000] text-[#ffecec]"
+<section  id="home" className="hero-section relative min-h-screen  bg-[#1a0000] text-[#ffecec]"
 >
-  {/* Optional dark overlay if your background image is bright */}
-
   <div className="absolute inset-0 bg-black/20 z-0" />
-
   <div className="container relative z-20 mx-auto px-4 py-16 lg:py-24">
-
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-
       {/* LEFT CONTENT */}
       <div className="relative text-center lg:text-left">
-
-        {/* Decorative SVG Logo */}
-        {/* Actual Content */}
         <div className="relative z-10">
-          {/* Decorative SVG Logo */}
 <div
   className="
     absolute
@@ -82,8 +60,7 @@ export default function Landing() {
     pointer-events-none
     opacity-15
     select-none
-  "
->
+  " >
   <img
     src="/dormitoryana-logo.svg"
     alt=""
@@ -138,56 +115,102 @@ export default function Landing() {
       </div>
 
       {/* RIGHT FEATURE CARDS */}
-      <div className="grid grid-cols-2 gap-4">
-        {["Safe", "Cozy", "Affordable", "Exclusive"].map((item, index) => (
-          <button
-            key={item}
-            className="
-              group relative overflow-hidden
-              w-full px-5 py-5 rounded-2xl
+<div className="grid grid-cols-2 gap-3">
+  {[
+    {
+      title: "Safe",
+      icon: "🛡️",
+      desc: "24/7 Security",
+    },
+    {
+      title: "Cozy",
+      icon: "🛏️",
+      desc: "Feels like home",
+    },
+    {
+      title: "Affordable",
+      icon: "💗",
+      desc: "Budget-friendly",
+    },
+    {
+      title: "Exclusive",
+      icon: "✨",
+      desc: "Female-only dorm",
+    },
+  ].map((item, index) => (
+    <div
+      key={item.title}
+      className="
+        relative overflow-hidden
+        rounded-2xl
+        p-4
 
-              border border-[#ff4d4d]/30
-              bg-gradient-to-br
-              from-[#320000]/90
-              via-[#500000]/70
-              to-[#1a0000]/90
+        bg-gradient-to-br
+        from-pink-200/15
+        via-rose-200/10
+        to-pink-300/15
 
-              backdrop-blur-xl
-              text-left text-[#ffecec]
-              font-semibold
+        backdrop-blur-xl
+        border border-pink-300/20
 
-              shadow-xl shadow-red-900/30
+        shadow-[0_4px_20px_rgba(255,105,180,0.15)]
 
-              transition-all duration-500
-              hover:scale-105 hover:-translate-y-1
-              active:scale-95
-            "
-            style={{
-              animation: `float 3s ease-in-out infinite`,
-              animationDelay: `${index * 0.3}s`,
-            }}
-          >
-            <span
-              className="
-                absolute inset-0
-                opacity-0 group-hover:opacity-100
-                bg-gradient-to-r
-                from-[#ff0000]/10
-                via-[#ff4d4d]/25
-                to-[#ff0000]/10
-                transition
-              "
-            />
+        hover:-translate-y-1
+        hover:shadow-[0_8px_25px_rgba(255,105,180,0.25)]
 
-            <span className="relative z-10 flex items-center gap-3">
-              <span className="text-xl">✦</span>
-              <span className="group-hover:tracking-widest transition">
-                {item}
-              </span>
-            </span>
-          </button>
-        ))}
+        transition-all duration-300
+        group
+      "
+      style={{
+        animation: `float 4s ease-in-out infinite`,
+        animationDelay: `${index * 0.4}s`,
+      }}
+    >
+      {/* Glow */}
+      <div
+        className="
+          absolute
+          -top-8
+          -right-8
+          w-20 h-20
+          rounded-full
+          bg-pink-400/15
+          blur-2xl
+        "
+      />
+
+      <div className="relative z-10">
+        <div
+          className="
+            w-10 h-10
+            rounded-xl
+            bg-gradient-to-br
+            from-pink-400
+            to-rose-500
+
+            flex items-center justify-center
+            text-lg
+
+            shadow-md
+            shadow-pink-400/30
+
+            mb-3
+          "
+        >
+          {item.icon}
+        </div>
+
+        <h3 className="text-sm md:text-base font-semibold text-pink-100">
+          {item.title}
+        </h3>
+
+        <p className="text-xs text-pink-100/70 mt-1">
+          {item.desc}
+        </p>
       </div>
+    </div>
+  ))}
+</div>
 
     </div>
   </div>
