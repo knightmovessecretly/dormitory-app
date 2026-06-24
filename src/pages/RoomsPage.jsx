@@ -196,7 +196,7 @@ export default function RoomsPage() {
           >
             <option value="">All Room Types</option>
             <option value="Solo Room">Solo Room</option>
-            <option value="Double/Twin Sharing">Double/Twin Sharing</option>
+            <option value="Double/Twin">Double/Twin</option>
             <option value="Triple Sharing">Triple Sharing</option>
             <option value="Quad Room">Quad Room</option>
           </select>

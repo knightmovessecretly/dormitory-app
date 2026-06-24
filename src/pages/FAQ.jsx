@@ -16,12 +16,12 @@ export default function FAQ() {
       answer: "We have our air-conditioned libray, fitness gym and prayer room.  Likewise we have our student lounge area ,  study areas, spacious courtyard and garden area, common kitchen area for cooking and students common dining areas. ",
     },
     {
-      question: "How do i schedule actual viewing and occular inspection of rooms?",
+      question: "How do i schedule actual viewing and ocular inspection of rooms?",
       answer: "Just get in touch with us and we will schedule you for a tour of our facilities anytime from Monday to Friday only.",
     },
     {
       question: "Whats the curfew? Are visitors allowed?",
-      answer: 'Curfew for dormers is at 10pm unless there is an advanced notrice or request. Visitors are allowed in the lounge area only.  Bo overnight guest. "Ladies only is strictly enforced at all times"',
+      answer: 'Curfew for dormers is at 10pm unless there is an advanced notrice or request. Visitors are allowed on Lounge and Common Areas. Visitors are not allowed inside the rooms.',
     },
   {
       question: "Whats are your safely and security measures?",
@@ -33,7 +33,7 @@ export default function FAQ() {
     },
       {
       question: "Can I cook inside the room?  ",
-      answer: 'No. Only in common kitchen .  Induction/rice cooker only.  No gas stoves allowed for fire safety."',
+      answer: 'There are specific rooms where kitchen cooking is allowed.  Otherwise, cooking is not allowed.  ',
     },
 
   ];

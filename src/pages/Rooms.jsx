@@ -32,8 +32,8 @@ export default function Rooms() {
     },
     {
       id: 2,
-      roomType: "Double/Twin Sharing",
-      name: "Double/Twin Sharing",
+      roomType: "Double/Twin",
+      name: "Double/Twin",
       description:
         "Comfortable shared room with spacious beds and storage.",
       images: [
@@ -147,7 +147,7 @@ export default function Rooms() {
           <div className="space-y-3 text-slate-700">
             {[
               "Solo Room – with private toilet, bath, & kitchen space",
-              "Double/Twin Sharing",
+              "Double/Twin",
               "Triple Sharing",
               "Quadruple Occupancy Room",
             ].map((room, i) => (
