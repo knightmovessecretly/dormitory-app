@@ -1,0 +1,164 @@
+[
+  {
+    "id": 1,
+    "roomType": "Solo Room",
+    "roomNumber": "S101",
+    "totalBeds": 1,
+    "price": 12000,
+    "currency": "PHP",
+    "description": "Enjoy complete privacy and comfort in our Solo Room. Perfect for students and professionals who need a quiet space for studying, working, and relaxing. Features a private study area, comfortable bed, fast Wi-Fi, and a peaceful environment designed to help you stay productive.",
+    "amenities": [
+      "Single Bed",
+      "Study Table",
+      "Wardrobe",
+      "Air Conditioning",
+      "High-Speed WiFi",
+      "Private Storage"
+    ],
+    "beds": [
+      {
+        "bedNumber": "Bed 1",
+        "status": "available"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "roomType": "Double Room",
+    "roomNumber": "D201",
+    "totalBeds": 2,
+    "price": 7500,
+    "currency": "PHP",
+    "description": "Share a modern and comfortable room while keeping your costs affordable. Our Double Room offers the perfect balance of privacy and community, making it ideal for students and young professionals looking for a friendly dormitory experience.",
+    "amenities": [
+      "2 Beds",
+      "Shared Study Area",
+      "Wardrobe",
+      "Air Conditioning",
+      "High-Speed WiFi",
+      "Personal Storage Locker"
+    ],
+    "beds": [
+      {
+        "bedNumber": "Bed 1",
+        "status": "available"
+      },
+      {
+        "bedNumber": "Bed 2",
+        "status": "available"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "roomType": "Triple Room",
+    "roomNumber": "T301",
+    "totalBeds": 3,
+    "price": 5500,
+    "currency": "PHP",
+    "description": "Our most budget-friendly option without sacrificing comfort. The Triple Room provides a welcoming community atmosphere where residents can build friendships while enjoying clean, secure, and fully furnished accommodations.",
+    "amenities": [
+      "3 Beds",
+      "Shared Study Area",
+      "Wardrobe",
+      "Air Conditioning",
+      "High-Speed WiFi",
+      "Personal Storage Locker"
+    ],
+    "beds": [
+      {
+        "bedNumber": "Bed 1",
+        "status": "available"
+      },
+      {
+        "bedNumber": "Bed 2",
+        "status": "available"
+      },
+      {
+        "bedNumber": "Bed 3",
+        "status": "available"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "roomType": "Solo Premium Room",
+    "roomNumber": "S102",
+    "totalBeds": 1,
+    "price": 15000,
+    "currency": "PHP",
+    "description": "Experience premium dormitory living with extra space, enhanced furnishings, and superior comfort. Designed for residents who value privacy, convenience, and a more upscale living environment.",
+    "amenities": [
+      "Premium Single Bed",
+      "Large Study Desk",
+      "Spacious Wardrobe",
+      "Air Conditioning",
+      "High-Speed WiFi",
+      "Private Mini Refrigerator"
+    ],
+    "beds": [
+      {
+        "bedNumber": "Bed 1",
+        "status": "available"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "roomType": "Double Deluxe Room",
+    "roomNumber": "D202",
+    "totalBeds": 2,
+    "price": 8500,
+    "currency": "PHP",
+    "description": "Enjoy a spacious shared room with modern amenities and a comfortable atmosphere. Perfect for roommates who want affordability while maintaining a high standard of living.",
+    "amenities": [
+      "2 Premium Beds",
+      "Large Study Area",
+      "Wardrobe",
+      "Air Conditioning",
+      "High-Speed WiFi",
+      "Storage Cabinets"
+    ],
+    "beds": [
+      {
+        "bedNumber": "Bed 1",
+        "status": "available"
+      },
+      {
+        "bedNumber": "Bed 2",
+        "status": "available"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "roomType": "Triple Economy Room",
+    "roomNumber": "T302",
+    "totalBeds": 3,
+    "price": 4500,
+    "currency": "PHP",
+    "description": "An affordable option for students and workers seeking safe, clean, and comfortable accommodations. Save on monthly expenses while enjoying all essential dormitory amenities.",
+    "amenities": [
+      "3 Beds",
+      "Shared Study Space",
+      "Wardrobe",
+      "Electric Fan",
+      "WiFi Access",
+      "Storage Lockers"
+    ],
+    "beds": [
+      {
+        "bedNumber": "Bed 1",
+        "status": "available"
+      },
+      {
+        "bedNumber": "Bed 2",
+        "status": "available"
+      },
+      {
+        "bedNumber": "Bed 3",
+        "status": "available"
+      }
+    ]
+  }
+]
