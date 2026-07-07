@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import "./Themes.css";
 
 export default function FAQ() {
   const faqs = [
@@ -35,21 +36,11 @@ export default function FAQ() {
       question: "Can I cook inside the room?  ",
       answer: 'There are specific rooms where kitchen cooking is allowed.  Otherwise, cooking is not allowed.  ',
     },
-
   ];
-
-
-
-
-
   const [active, setActive] = useState(null);
-
   return (
     <div
-      className="min-h-screen px-6 py-20 text-slate-800"
-      style={{
-        background: "linear-gradient(to right, #f9c2c2, #ffffff)",
-      }}
+      className="pinkfloral min-h-screen px-6 py-20 text-slate-800"
     >
       <div className="max-w-4xl mx-auto">
                <motion.h1

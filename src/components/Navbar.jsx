@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
   Bell,
   User,
@@ -17,14 +17,20 @@ export default function Navbar() {
   const { user, logout } = useAuth();
   const isAdmin = user?.role === "admin";
 
+  // Active/Inactive navigation styles
+  const navClass = ({ isActive }) =>
+    `px-4 py-2 rounded-full font-medium transition-all duration-300 ${
+      isActive
+        ? "bg-pink-500 text-white shadow-md"
+        : "text-pink-500 hover:bg-pink-100 hover:text-pink-600"
+    }`;
+
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         <div className="flex justify-between items-center h-16">
-
           {/* LOGO */}
-          <Link to="/" className="font-bold text-xl text-blue-600">
+          <Link to="/" className="font-bold text-xl">
             <img
               src="/logo.png"
               alt="Dormitory Logo"
@@ -33,33 +39,50 @@ export default function Navbar() {
           </Link>
 
           {/* DESKTOP MENU */}
-          <div className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-700">
+          <div className="hidden md:flex items-center gap-2">
+            <NavLink to="/" className={navClass}>
+              Home
+            </NavLink>
 
-            <Link to="/" className="hover:text-blue-600">Home</Link>
-            <Link to="/rooms" className="hover:text-blue-600">Rooms</Link>
-            <Link to="/services" className="hover:text-blue-600">Services</Link>
-            <Link to="/news" className="hover:text-blue-600">News</Link>
-            <Link to="/contact" className="hover:text-blue-600">Contact Us</Link>
-            <Link to="/about" className="hover:text-blue-600">About Us</Link>
-            <Link to="/faq" className="hover:text-blue-600">FAQ</Link>
+            <NavLink to="/ourstory" className={navClass}>
+              Our Story
+            </NavLink>
 
-            {!user ? (
-              <></>
-            ) : (
+            <NavLink to="/rooms" className={navClass}>
+              Rooms
+            </NavLink>
+
+            <NavLink to="/offerings" className={navClass}>
+              Offerings
+            </NavLink>
+
+            <NavLink to="/contact" className={navClass}>
+              Contact Us
+            </NavLink>
+
+            <NavLink to="/faq" className={navClass}>
+              FAQ
+            </NavLink>
+
+            <NavLink to="/news" className={navClass}>
+              News
+            </NavLink>
+
+            {!user ? null : (
               <>
                 {/* Notifications */}
-                <button className="relative">
+                <button className="relative ml-2">
                   <Bell size={20} />
                   <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full px-1">
                     3
                   </span>
                 </button>
 
-                {/* User Profile Dropdown */}
+                {/* User Profile */}
                 <div className="relative">
                   <button
                     onClick={() => setProfileOpen(!profileOpen)}
-                    className="flex items-center gap-2"
+                    className="flex items-center gap-2 ml-2"
                   >
                     {user.photoURL ? (
                       <img
@@ -68,7 +91,7 @@ export default function Navbar() {
                         className="w-9 h-9 rounded-full object-cover"
                       />
                     ) : (
-                      <div className="w-9 h-9 rounded-full bg-blue-100 flex items-center justify-center">
+                      <div className="w-9 h-9 rounded-full bg-pink-100 flex items-center justify-center">
                         <User size={18} />
                       </div>
                     )}
@@ -77,27 +100,25 @@ export default function Navbar() {
                   </button>
 
                   {profileOpen && (
-                    <div className="absolute right-0 mt-2 w-52 bg-white border rounded-lg shadow-lg">
-
+                    <div className="absolute right-0 mt-2 w-56 bg-white border rounded-xl shadow-lg overflow-hidden">
                       <div className="px-4 py-3 border-b">
                         <p className="font-medium">{user.name}</p>
-                        <p className="text-xs text-gray-500">{user.email}</p>
+                        <p className="text-xs text-gray-500">
+                          {user.email}
+                        </p>
                       </div>
 
-
-                      {/* ✅ UPDATED: News with icon */}
                       <Link
                         to="/smrc/dormitoryana/admin?tab=news"
-                        className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100"
+                        className="flex items-center gap-2 px-4 py-3 hover:bg-gray-100"
                       >
                         <Newspaper size={16} />
                         News
                       </Link>
 
-                      {/* ✅ UPDATED: Rooms with icon */}
                       <Link
-                        to="/smrc/dormitoryana/admin/?tab=rooms"
-                        className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100"
+                        to="/smrc/dormitoryana/admin?tab=rooms"
+                        className="flex items-center gap-2 px-4 py-3 hover:bg-gray-100"
                       >
                         <Bed size={16} />
                         Room Inventory
@@ -105,12 +126,11 @@ export default function Navbar() {
 
                       <button
                         onClick={logout}
-                        className="w-full text-left flex items-center gap-2 px-4 py-2 text-red-600 hover:bg-red-50"
+                        className="w-full text-left flex items-center gap-2 px-4 py-3 text-red-600 hover:bg-red-50"
                       >
                         <LogOut size={16} />
                         Logout
                       </button>
-
                     </div>
                   )}
                 </div>
@@ -118,54 +138,98 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* MOBILE BUTTON */}
-          <button onClick={() => setOpen(!open)} className="md:hidden">
+          {/* MOBILE MENU BUTTON */}
+          <button
+            onClick={() => setOpen(!open)}
+            className="md:hidden text-pink-500"
+          >
             {open ? <X size={24} /> : <Menu size={24} />}
           </button>
-
         </div>
 
         {/* MOBILE MENU */}
         {open && (
-          <div className="md:hidden flex flex-col gap-3 py-4 border-t">
+          <div className="md:hidden flex flex-col gap-2 py-4 border-t">
+            <NavLink
+              to="/"
+              className={navClass}
+              onClick={() => setOpen(false)}
+            >
+              Home
+            </NavLink>
 
-            <Link to="/" onClick={() => setOpen(false)}>Home</Link>
-            <Link to="/rooms" onClick={() => setOpen(false)}>Rooms</Link>
-            <Link to="/services" onClick={() => setOpen(false)}>Services</Link>
-            <Link to="/news" onClick={() => setOpen(false)}>News</Link>
-            <Link to="/contact" onClick={() => setOpen(false)}>Contact Us</Link>
-            <Link to="/about" onClick={() => setOpen(false)}>About Us</Link>
-            <Link to="/faq" onClick={() => setOpen(false)}>FAQ</Link>
+            <NavLink
+              to="/ourstory"
+              className={navClass}
+              onClick={() => setOpen(false)}
+            >
+              Our Story
+            </NavLink>
+
+            <NavLink
+              to="/rooms"
+              className={navClass}
+              onClick={() => setOpen(false)}
+            >
+              Rooms
+            </NavLink>
+
+            <NavLink
+              to="/offerings"
+              className={navClass}
+              onClick={() => setOpen(false)}
+            >
+              Offerings
+            </NavLink>
+
+            <NavLink
+              to="/contact"
+              className={navClass}
+              onClick={() => setOpen(false)}
+            >
+              Contact Us
+            </NavLink>
+
+            <NavLink
+              to="/faq"
+              className={navClass}
+              onClick={() => setOpen(false)}
+            >
+              FAQ
+            </NavLink>
+
+            <NavLink
+              to="/news"
+              className={navClass}
+              onClick={() => setOpen(false)}
+            >
+              News
+            </NavLink>
 
             {isAdmin && (
               <Link
                 to="/admin"
-                className="text-red-600 font-semibold"
+                className="text-red-600 font-semibold px-4 py-2"
                 onClick={() => setOpen(false)}
               >
                 Admin Panel
               </Link>
             )}
 
-            {!user ? (
-              <></>
-            ) : (
+            {user && (
               <>
-
-                {/* ✅ MOBILE: News with icon */}
                 <Link
                   to="/smrc/dormitoryana/admin?tab=news"
-                  className="flex items-center gap-2"
+                  className="flex items-center gap-2 px-4 py-2"
                   onClick={() => setOpen(false)}
                 >
                   <Newspaper size={16} />
                   News
                 </Link>
 
-                {/* ✅ MOBILE: Rooms with icon */}
                 <Link
-                  to="/smrc/dormitoryana/admin/?tab=rooms"
-                  className="flex items-center gap-2"
+                  to="/smrc/dormitoryana/admin?tab=rooms"
+                  className="flex items-center gap-2 px-4 py-2"
                   onClick={() => setOpen(false)}
                 >
                   <Bed size={16} />
@@ -177,7 +241,7 @@ export default function Navbar() {
                     logout();
                     setOpen(false);
                   }}
-                  className="text-left text-red-600"
+                  className="text-left text-red-600 px-4 py-2"
                 >
                   Logout
                 </button>

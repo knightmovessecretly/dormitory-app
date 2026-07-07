@@ -116,7 +116,6 @@ export default function RoomCard({ room }) {
           >
             ❮
           </button>
-
           <button
             onClick={(e) => {
               e.stopPropagation();
@@ -174,22 +173,15 @@ export default function RoomCard({ room }) {
             />
           ))}
         </div>
-
         {/* CONTENT */}
         <div className="p-6 flex flex-col flex-1">
           {/* HEADER */}
           <div className="flex justify-between items-start gap-4">
             <div>
-              <h3 className="text-2xl font-bold text-slate-800 leading-tight">
+              <h3 className="text-2xl  font-bold text-[#FF00FF] leading-tight">
                 {room.name}
               </h3>
-
-              <p className="text-gray-500 mt-1 text-sm">
-                Capacity: {room.capacity}
-              </p>
             </div>
-
-            {/* AVAILABILITY */}
             <div
               className={`
                 px-4 py-2 rounded-full text-sm font-semibold
@@ -203,9 +195,6 @@ export default function RoomCard({ room }) {
                 }
               `}
             >
-              {room.availableBeds > 0
-                ? `${room.availableBeds} beds left`
-                : "Fully booked"}
             </div>
           </div>
 

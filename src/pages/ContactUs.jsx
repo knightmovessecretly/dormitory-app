@@ -1,13 +1,11 @@
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Globe } from "lucide-react";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
+import "./Themes.css";
 
 export default function ContactUs() {
   return (
-    <div  className="min-h-screen px-6 py-20 text-slate-800"
-      style={{
-        background: "linear-gradient(to right, #f9c2c2, #ffffff)",
-      }}
+    <div  className="pinkfloral min-h-screen px-6 py-20 text-slate-800"
     >
       <div className="max-w-xl mx-auto w-full">
         {/* HEADER (Now safely outside the box) */}

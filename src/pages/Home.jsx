@@ -1,4 +1,5 @@
 import PageTransition from "../components/PageTransition";
+import "./Themes.css";
 
 export default function Home() {
   return (

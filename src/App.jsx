@@ -2,15 +2,19 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import MainLayout from "./layouts/MainLayout";
 import AdminLayout from "./layouts/AdminLayout";
+import "./App.css";
+
 
 import Home from "./pages/Home";
 import Landing from "./pages/Landing";
 import Rooms from "./pages/Rooms";
 import RoomsPage from "./pages/RoomsPage";
 import About from "./pages/AboutUs";
+import OurStory from "./pages/OurStory";
 import Room from "./pages/RoomsPage";
 import ContactUs from "./pages/ContactUs";
 import FAQ from "./pages/FAQ";
+import Testimonials from "./pages/Testimonials";
 import News from "./pages/News";
 import NewsDetail from "./pages/NewsDetail";
 import AdminNews from "./pages/AdminNews";
@@ -32,12 +36,14 @@ export default function App() {
             <Route path="/" element={<Landing />} />
             <Route path="/rooms" element={<Rooms />} />
             <Route path="/about" element={<About />} />
+            <Route path="/ourstory" element={<OurStory />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/news" element={<News />} />
             <Route path="/news/:slug" element={<NewsDetail />} />
-            <Route path="/services" element={<Services />} /> 
+            <Route path="/offerings" element={<Services />} /> 
             <Route path="/inventory" element={<Room />} />
+            <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/login" element={<Login />} />
             
             <Route path="/user" element={

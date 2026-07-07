@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./Themes.css";
 
 export default function AdminNews() {
 

@@ -3,6 +3,8 @@ import { useParams, Link } from "react-router-dom"; // Added Link for related ar
 import axios from "axios";
 import { Helmet } from "react-helmet-async";
 import config from "../config";
+import "./Themes.css";
+
 const { API_URL, BASE_URL } = config;
 
 export default function NewsDetail() {
@@ -38,7 +40,6 @@ export default function NewsDetail() {
             console.error(err);
         }
     };
-
     if (!news) {
         return (
             <div className="text-center py-20">
@@ -46,55 +47,42 @@ export default function NewsDetail() {
             </div>
         );
     }
-
     const imageUrl = news.featured_image
         ? `${BASE_URL}${news.featured_image}`
         : "/placeholder.jpg";
-
     return (
-        <div className="bg-gray-50 min-h-screen">
-
+        <div className="pinkfloral bg-gray-50 min-h-screen">
             {/* SEO META TAGS */}
             <Helmet>
                 <title>{news.title}</title>
-
                 <meta name="description" content={news.summary} />
-
                 {/* Open Graph (Facebook, LinkedIn) */}
                 <meta property="og:title" content={news.title} />
                 <meta property="og:description" content={news.summary} />
                 <meta property="og:image" content={imageUrl} />
                 <meta property="og:type" content="article" />
-
                 {/* Twitter Card */}
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content={news.title} />
                 <meta name="twitter:description" content={news.summary} />
                 <meta name="twitter:image" content={imageUrl} />
             </Helmet>
-
             {/* HERO SECTION */}
             <section className="relative h-[600px]">
-
                 <img
                     src={imageUrl}
                     alt={news.title}
                     className="absolute inset-0 w-full h-full object-cover"
                 />
-
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
-
                 <div className="absolute bottom-0 left-0 right-0">
                     <div className="max-w-6xl mx-auto px-6 pb-16">
-
                         <span className="bg-blue-600 text-white px-4 py-2 rounded-full text-sm">
                             {news.category}
                         </span>
-
                         <h1 className="text-white text-4xl md:text-6xl font-black mt-4">
                             {news.title}
                         </h1>
-
                         <div className="flex gap-6 mt-6 text-white/80">
                             <span>By {news.author}</span>
                             <span>
@@ -103,19 +91,15 @@ export default function NewsDetail() {
                                 ).toLocaleDateString()}
                             </span>
                         </div>
-
                     </div>
                 </div>
             </section>
 
             {/* MAIN CONTENT */}
             <section className="max-w-7xl mx-auto px-6 py-16">
-
                 <div className="grid lg:grid-cols-12 gap-10">
-
                     {/* ARTICLE */}
                     <article className="lg:col-span-8 space-y-8">
-
                         {/* SUMMARY */}
                         <div className="bg-white rounded-2xl shadow p-8">
                             <h2 className="text-2xl font-bold mb-4">

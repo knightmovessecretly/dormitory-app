@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import config from "../config";
+import "./Themes.css";
 
 const { API_URL, BASE_URL } = config;
 
@@ -21,11 +22,8 @@ export default function NewsPage() {
 
   return (
     <div
-      className="min-h-screen text-slate-800"
-      style={{
-        background: "linear-gradient(to right, #f9c2c2 0%, #ffe3e3 40%, #ffffff 100%)",
-      }}
-    >
+      className="pinkfloral min-h-screen text-slate-800"
+   >
       {/* HERO */}
       <div className="text-center py-16 px-4">
         <h1 className="text-5xl font-bold text-pink-500 mb-3">Dormitory News</h1>
