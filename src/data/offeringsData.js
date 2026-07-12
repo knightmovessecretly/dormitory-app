@@ -59,6 +59,8 @@ const offeringsData = [
                 "/images/gym.png",
                 "/images/gym2.png",
                 "/images/gym3.png",
+                "/images/gym4.jpg",
+                "/images/gym5.jpg",
             ],
         },
     ],
@@ -69,7 +71,7 @@ const offeringsData = [
             icon: Trees,
             images: [
                 "/images/enhancedCourtyard.jpg",
-                "/images/landingNew.jpg",
+                "/images/landing0.jpg",
                 "/images/communityLiving.png",
             ],
         },
