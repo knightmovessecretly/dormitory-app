@@ -83,14 +83,16 @@ export default function ContactUs() {
           </div>
           {/* MAP */}
           <div className="rounded-2xl overflow-hidden border border-white/50 shadow-md">
-            <iframe
-              title="Dormitory Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.2003719002933!2d121.0718448!3d14.6445778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b7a1b32bb391%3A0x7d6a5cda01d1c447!2sB.%20Gonzales%2c%20Loyola%20Heights%2C%20Quezon%20City%2C%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1625000000000!5m2!1sen!2sph"
-              width="100%"
-              height="200"
-              style={{ border: 0, filter: "grayscale(0.1) contrast(1.05)" }}
-              loading="lazy"
-            />
+<iframe
+  title="Dormitory Location"
+  src="https://www.google.com/maps?q=155+B.+Gonzales+St.+corner+Katipunan+Ave.,+Loyola+Heights,+Quezon+City,+Philippines&z=17&output=embed"
+  width="100%"
+  height="200"
+  style={{ border: 0, filter: "grayscale(0.1) contrast(1.05)" }}
+  loading="lazy"
+  referrerPolicy="no-referrer-when-downgrade"
+  allowFullScreen
+/>
           </div>
         </motion.div>
       </div>

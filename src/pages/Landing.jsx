@@ -37,7 +37,7 @@ const navigate = useNavigate();
       <div className="w-full max-w-4xl bg-white shadow-lg rounded-lg border border-pink-200 overflow-hidden">
         {/* Top Image */}
         <img
-          src="/images/landingFirst.jpg"
+          src="/images/landingFirst2.jpg"
           alt="Dormitoryana Building"
         />
 
