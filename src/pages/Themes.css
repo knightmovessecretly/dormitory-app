@@ -5,8 +5,14 @@
   background-position: center;
 }
 .dormtitle {
-  color: #2b0847;
+  color: black;
   font-size: 36px;
+  font-weight: bolder; 
+}
+
+.dormtextfooter {
+  color:white;
+  font-size: 16px;
   font-weight: bolder; 
 }
 
