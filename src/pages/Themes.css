@@ -5,8 +5,11 @@
   background-position: center;
 }
 .dormtitle {
-  color: #642195;
+  color: #2b0847;
+  font-size: 36px;
+  font-weight: bolder; 
 }
+
 
 .dormtext {
   color: #642195;
