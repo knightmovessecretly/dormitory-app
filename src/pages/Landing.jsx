@@ -37,10 +37,9 @@ const navigate = useNavigate();
       <div className="w-full max-w-4xl bg-white shadow-lg rounded-lg border border-pink-200 overflow-hidden">
         {/* Top Image */}
         <img
-          src="/images/landingFirst2.jpg"
+          src="/images/landingAdjusted.png"
           alt="Dormitoryana Building"
         />
-
         {/* Title Section */}
 <div className="flex justify-center pt-6">
   <img

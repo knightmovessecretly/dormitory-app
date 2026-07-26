@@ -19,6 +19,7 @@ const offeringsData = [
             title: "24/7 Security",
             icon: ShieldCheck,
             images: [
+                "/images/security.jpg",
             ],
         },
 
@@ -26,10 +27,11 @@ const offeringsData = [
             title: "Reception Hall with Wifi",
             icon: Wifi,
             images: [
-                "/images/reception.jpg",
+                "/images/commonStudyArea.png",
+                "/images/roofdeck.png",
+                "/images/studyareaLounge.png",
             ],
         },
-
         {
             title: "Common Kitchen Dining with Wifi",
             icon: CookingPot,
@@ -40,31 +42,25 @@ const offeringsData = [
             ],
         },
     ],
-
     [
         {
             title: "Study Decks with Wifi",
             icon: BookOpen,
             images: [
-                "/images/commonStudyArea.png",
-                "/images/roofdeck.png",
+                "/images/supportiveEnvironment.png",
                 "/images/studyareaLounge.png",
             ],
         },
-
         {
             title: "Gym with Wifi",
             icon: Dumbbell,
             images: [
-                "/images/gym.png",
-                "/images/gym2.png",
                 "/images/gym3.png",
                 "/images/gym4.jpg",
                 "/images/gym5.jpg",
             ],
         },
     ],
-
     [
         {
             title: "Courtyard with Fruit Trees",
@@ -75,7 +71,6 @@ const offeringsData = [
                 "/images/communityLiving.png",
             ],
         },
-
         {
             title: "Prayer Room",
             icon: HandHeart,
@@ -90,14 +85,8 @@ const offeringsData = [
             title: "Library with Wifi",
             icon: Library,
             images: [
-                "/images/library.png",
                 "/images/library2.png",
-                "/images/library3.png",
-                "/images/library4.png",
-                "/images/library5.png",
-                "/images/library6.png",
                 "/images/library7.png",
-                "/images/library8.png",
                 "/images/library9.png",
             ],
         },
@@ -124,8 +113,6 @@ const offeringsData = [
             title: "Aesthetics",
             icon: Sparkles,
             images: [
-                "/images/supportiveEnvironment.png",
-                "/images/studyareaLounge.png",
             ],
         },
 

@@ -1,6 +1,13 @@
 .pinkfloral  {
-  background-image: url('/images/pink-floral-bg.png');
+  background-image: url('/images/bg3.png');
   background-repeat: repeat;
   background-size: cover;
   background-position: center;
+}
+.dormtitle {
+  color: #642195;
+}
+
+.dormtext {
+  color: #642195;
 }

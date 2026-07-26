@@ -5,26 +5,24 @@ import "./Themes.css";
 
 export default function ContactUs() {
   return (
-    <div  className="pinkfloral min-h-screen px-6 py-20 text-slate-800"
-    >
-      <div className="max-w-xl mx-auto w-full">
-        {/* HEADER (Now safely outside the box) */}
+    <div  className="pinkfloral min-h-screen px-6 py-20 text-slate-800"    >
+      <div className="max-w-4xl mx-auto w-full">
         <motion.div 
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="text-center mb-6"
-        >
-        <h1 className="text-5xl font-bold text-pink-500 mb-3">Contact Us</h1>       </motion.div>
+       >
+        <h1 className="dormtitle text-5xl font-bold text-500 mb-3">Contact Us</h1>       </motion.div>
 
         {/* CARD CONTAINER */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="backdrop-blur-xl bg-white/75 border border-white/40 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6"
-        >
-          {/* CONTACT CHANNELS */}
+className="backdrop-blur-xl bg-white/75 border border-white/40 rounded-3xl
+               p-10 sm:p-12 shadow-2xl space-y-8 min-h-[720px]"          
+  >
           <div className="space-y-5">
             {/* ADDRESS */}
             <div className="flex gap-4 items-start">

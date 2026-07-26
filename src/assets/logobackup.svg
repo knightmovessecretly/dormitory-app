@@ -2,18 +2,18 @@
   <style>
     .title {
       font-family: 'Brush Script MT', cursive;
-      font-size: 85px;
+      font-size: 60px;
       fill: #ff4fa3;
     }
     .subtitle {
       font-family: 'Arial Black', sans-serif;
-      font-size: 28px;
+      font-size: 40px;
       fill: #0073c6;
     }
     .tagline {
       font-family: 'Segoe Script', cursive;
       font-size: 24px;
-      fill: #272d2c;
+      fill: #004b8d;
       opacity: 0;
       animation: slideIn 3s ease-in-out infinite;
     }
@@ -34,13 +34,13 @@
   </style>
 
   <!-- Curved Dormitoryana -->
-  <path id="curve" d="M40,130 C200,0 400,0 560,130" fill="transparent"/>
+  <path id="curve" d="M50,120 C200,20 400,20 550,120" fill="transparent"/>
   <text class="title">
     <textPath href="#curve" startOffset="0%">Dormitoryana</textPath>
   </text>
 
   <!-- SMRC aligned -->
-  <text x="275" y="95" class="subtitle">SMRC</text>
+  <text x="180" y="100" class="subtitle">SMRC</text>
 
   <!-- Animated tagline -->
   <text x="110" y="160" class="tagline">Your Home Away From Home!</text>

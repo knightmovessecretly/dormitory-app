@@ -16,7 +16,6 @@ const { API_URL } = config;
 // --- LEXICAL ACTION TOOLBAR ---
 function EditorToolbar({ onSave, isSaving }) {
   const [editor] = useLexicalComposerContext();
-
   const handleClear = () => {
     // FIX: Mutations safely wrapped in editor.update() to prevent frozen node map error
     editor.update(() => {

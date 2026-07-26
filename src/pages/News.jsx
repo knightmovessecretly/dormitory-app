@@ -26,8 +26,7 @@ export default function NewsPage() {
    >
       {/* HERO */}
       <div className="text-center py-16 px-4">
-        <h1 className="text-5xl font-bold text-pink-500 mb-3">Dormitory News</h1>
-        <p className="text-slate-600">Updates, announcements, and important information</p>
+        <h1 className="dormtitle text-5xl font-bold text-500 mb-3">Dormitory News</h1>
       </div>
 
       {/* GRID */}

@@ -5,12 +5,11 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import config from "../config";
 import "./Themes.css";
-
 const { API_URL, BASE_URL } = config;
 export default function Rooms() {
   const navigate = useNavigate();
   const [rooms, setRooms] = useState([
-   {    id: 1,  roomType: "Solo Room",  name: "Solo Bedroom",
+   {    id: 1,  roomType: "Solo",  name: "Solo",
       description:  "Perfect for students or professionals who value privacy and comfort.",
       images: [  "/images/bedroomSolo2.jpg",   "/images/bedroomSolo4.png",  "/images/bedroomSolo5.png",   "/images/bedroomSoloRoomStudyArea.png",   ],
       capacity: "Good for 1 person",
@@ -59,15 +58,6 @@ export default function Rooms() {
         "/images/airbnb4.jpeg",   "/images/airbnb5.jpeg",
         "/images/airbnb6.jpeg",
         "/images/airbnb7.jpeg",
-      ],
-      amenities: ["WiFi", "Aircon", "Shared Cabinet", "Study Area"],
-      capacity: "",
-    },    
-
-    {  id: 6,  roomType: "Co-Share",
-      name: "Co-Share",
-      description: "",
-      images: [   
         "/images/transient1.jpeg", 
         "/images/transient2.jpeg", 
         "/images/trainsient3.jpeg", 
@@ -77,7 +67,14 @@ export default function Rooms() {
       capacity: "",
     },    
 
-
+    {  id: 6,  roomType: "Co-Share",
+      name: "Co-Share",
+      description: "",
+      images: [   
+      ],
+      amenities: ["WiFi", "Aircon", "Shared Cabinet", "Study Area"],
+      capacity: "",
+    },    
   ]);  
   useEffect(() => {
     const fetchAvailability = async () => {
@@ -108,7 +105,6 @@ export default function Rooms() {
   }, []);
   return (
     <div className="pinkfloral min-h-screen text-slate-800"   >
-      {/* HERO */}
       <section className="relative h-[30vh] flex items-center justify-center overflow-hidden">
         <div className="absolute w-[500px] h-[500px] bg-pink-300/20 rounded-full blur-3xl -top-40 -left-40" />
         <div className="absolute w-[400px] h-[400px] bg-blue-300/20 rounded-full blur-3xl bottom-0 right-0" />
@@ -117,11 +113,10 @@ export default function Rooms() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="relative z-10 text-center px-4" >
-          <h1 className="text-5xl font-bold text-pink-500 mb-4"> Rooms </h1>
+          <h1 className="dormtitle text-5xl font-bold text-500 mb-4"> Rooms </h1>
         </motion.div>
       </section>
 
-      {/* ROOMS SECTION */}
       <section className="pt-2 pb-20 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
@@ -130,10 +125,12 @@ export default function Rooms() {
                 key={room.id}
                 initial={{ opacity: 0, y: 60 }}
                 whileInView={{ opacity: 1, y: 0 }}
+
                 transition={{
                   duration: 0.5,
                   delay: index * 0.1,
                 }}
+                  
                 viewport={{ once: true }}
               >
                 <RoomCard room={room} />

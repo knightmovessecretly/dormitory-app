@@ -2,12 +2,13 @@
 import React from "react";
 import "./OurStory.css";
 import "./Themes.css";
+import logo from "../assets/logo.svg";
 
 const OurStory = () => {
   return (
     <div className="pinkfloral min-h-screen bg-gradient-to-b from-pink-100 to-white flex flex-col items-center p-8">
       <div className="max-w-4xl w-full bg-white shadow-lg rounded-lg p-10">
-        <h1 className="text-4xl font-bold text-center text-pink-600 mb-6">
+        <h1 className="dormtitle text-4xl font-bold text-center text-600 mb-6">
           Our Story
         </h1>
 
@@ -39,19 +40,19 @@ const OurStory = () => {
         <img src="/images/os6.png" alt="" />
       </div>
 
-
-
-
-        <h2 className="text-2xl font-semibold text-center text-pink-500 mt-8">
+        <h2 className="dormtitle text-2xl font-semibold text-center text-500 mt-8">
           We WELCOME you to 
         </h2>
-      <div className="image-grid">
-        <img src="/images/os8.png" alt="" />
+      <div className="flex justify-center place-items-center ">
+          <img 
+            src={logo}
+            alt="Dormitoryana Logo"
+            className="w-[500px] translate-x-20  image-grid"
+          />
       </div>
 
 
         <h2 className="text-2xl font-semibold text-center text-pink-500 mt-8">
-          Your Home Away From Home!
         </h2>
 
 
