@@ -1,21 +1,15 @@
-.pinkfloral  {
-  background-image: url('/images/bg3.png');
+.pinkfloral {
+  background-image: url("/images/bg3.png");
   background-repeat: repeat;
   background-size: cover;
   background-position: center;
 }
+
 .dormtitle {
   color: black;
-  font-size: 36px;
-  font-weight: bolder; 
+  font-size: 2.5rem;
+  font-weight: 700;
 }
-
-.dormtextfooter {
-  color:white;
-  font-size: 16px;
-  font-weight: bolder; 
-}
-
 
 .dormtext {
   color: #642195;

@@ -12,6 +12,7 @@ import {
     Sparkles,
     Landmark,
 } from "lucide-react";
+import { GiKitchenTap } from "react-icons/gi";
 
 const offeringsData = [
     [
@@ -34,11 +35,9 @@ const offeringsData = [
         },
         {
             title: "Common Kitchen Dining with Wifi",
-            icon: CookingPot,
+            icon: GiKitchenTap,
             images: [
-                "/images/offerings/kitchen/kitchen1.jpg",
-                "/images/offerings/kitchen/kitchen2.jpg",
-                "/images/offerings/kitchen/kitchen3.jpg",
+                "/images/commonKitchenArea.jpg",
             ],
         },
     ],
@@ -79,7 +78,6 @@ const offeringsData = [
             ],
         },
     ],
-
     [
         {
             title: "Library with Wifi",
@@ -90,7 +88,6 @@ const offeringsData = [
                 "/images/library9.png",
             ],
         },
-
         {
             title: "Edible Micro Gardens",
             icon: Sprout,
@@ -106,6 +103,9 @@ const offeringsData = [
             title: "Food Court",
             icon: UtensilsCrossed,
             images: [
+                "/images/foodcourt.jpg",
+                "/images/foodcourt2.jpg",
+                "/images/foodcourt3.jpg",
             ],
         },
 
@@ -115,11 +115,12 @@ const offeringsData = [
             images: [
             ],
         },
-
         {
             title: "Bank",
             icon: Landmark,
             images: [
+                "/images/bank1.jpg",
+                "/images/bank2.jpg",
             ],
         },
     ],
