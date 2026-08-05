@@ -5,12 +5,56 @@
   background-position: center;
 }
 
+/*
 .dormtitle {
   color: black;
   font-size: 2.5rem;
   font-weight: 700;
 }
-
+*/
 .dormtext {
   color: #642195;
+}
+
+
+.dormtitle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1rem 3rem;
+
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 3px solid #f3c4da;
+  border-radius: 9999px;
+
+  color: #4b1f61;
+  font-size: 3.4rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+
+  transition: all 0.3s ease;
+}
+
+.dormtitle-capsule:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.2),
+    0 0 20px rgba(236, 72, 153, 0.2);
+}
+
+@media (max-width: 768px) {
+  .dormtitle-capsule {
+    font-size: 2.4rem;
+    padding: 0.8rem 2rem;
+    letter-spacing: 0.12em;
+  }
 }

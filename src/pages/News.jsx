@@ -40,7 +40,7 @@ export default function NewsPage() {
               transition={{ delay: index * 0.05 }}
             >
               <Link
-                to={`/news/${item.slug}`}
+//                to={`/news/${item.slug}`}
                 className="block rounded-3xl overflow-hidden bg-white/70 backdrop-blur-xl border border-gray-200 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               >
                 {/* IMAGE */}
@@ -62,7 +62,6 @@ export default function NewsPage() {
   dangerouslySetInnerHTML={{ __html: item.summary }} 
 />
 
-                  <div className="mt-4 text-sm text-pink-500 font-medium">Read more →</div>
                 </div>
               </Link>
             </motion.div>

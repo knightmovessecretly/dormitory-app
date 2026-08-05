@@ -1,102 +1,196 @@
-import { motion } from "framer-motion";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ChevronDown,
+  BedDouble,
+  BadgeDollarSign,
+  Wifi,
+  Building2,
+  MapPinned,
+  CalendarCheck,
+} from "lucide-react";
 import "./Themes.css";
 
+const faqs = [
+  {
+    icon: <BedDouble size={22} />,
+    question: "What types of rooms do you offer?",
+    answer: [
+      "Single-occupancy units – with or without Patio and Kitchen.",
+      "Double-occupancy units – with or without Patio and Kitchen.",
+      "Triple-occupancy units – with or without Patio and Kitchen.",
+      "Quad-occupancy units – with or without Patio and Kitchen.",
+      "All rooms have En Suite Bathrooms.",
+    ],
+  },
+  {
+    icon: <Building2 size={22} />,
+    question: "What rooms are still available?",
+    answer: [
+      "We have over 90 rooms of various occupancy.",
+      "Message us and make an appointment to tour our buildings.",
+      "The early bird gets the worm!",
+    ],
+  },
+  {
+    icon: <BadgeDollarSign size={22} />,
+    question: "What are your rates?",
+    answer: [
+      "Tell us your budget and we will find you a bed.",
+    ],
+  },
+  {
+    icon: <CalendarCheck size={22} />,
+    question: "Do you accept reservations?",
+    answer: [
+      "Booking is on a first come, first served basis.",
+      "A Contract of Lease together with Advance and Security Deposits is required to secure a room or bed.",
+    ],
+  },
+  {
+    icon: <Wifi size={22} />,
+    question: "Do you have WiFi?",
+    answer: [
+      "Free WiFi is available in the Reception Area, Common Kitchen/Dining, Study Halls, Study Balconies, Library and Gym.",
+      "Personal internet connection is at your own expense.",
+    ],
+  },
+  {
+    icon: <BadgeDollarSign size={22} />,
+    question: "Are your Basic Rates all-inclusive of Utilities?",
+    answer: [
+      "Utilities are sub-metered.",
+      "Basic Rates exclude CUSA (Common Usage Service Area).",
+    ],
+  },
+  {
+    icon: <BedDouble size={22} />,
+    question: "How much is your Solo Room?",
+    answer: [
+      "Single-occupancy rooms range from ₱9,000 to ₱14,000 per month depending on the size and location of the room.",
+      "All rooms have En Suite Bathrooms.",
+    ],
+  },
+  {
+    icon: <MapPinned size={22} />,
+    question: "How do I commute to the University of the Philippines Diliman?",
+    answer: [
+      "Jeepneys queue along our Katipunan frontage.",
+      "Tricycles queue just a few paces down B. Gonzales Street.",
+    ],
+  },
+];
+
 export default function FAQ() {
-  const faqs = [
-    {
-      question: "What are the room rates?",
-      answer: "Rates depend on room type and occupancy.",
-    },
-    {
-      question: "What room types are available?",
-      answer: "Solo, Double, Triple, Quadroom",
-    },
-    {
-      question: "What are your amenities and services inside the dormitory",
-      answer: "We have our air-conditioned libray, fitness gym and prayer room.  Likewise we have our student lounge area ,  study areas, spacious courtyard and garden area, common kitchen area for cooking and students common dining areas. ",
-    },
-    {
-      question: "How do i schedule actual viewing and ocular inspection of rooms?",
-      answer: "Just get in touch with us and we will schedule you for a tour of our facilities anytime from Monday to Friday only.",
-    },
-    {
-      question: "Whats the curfew? Are visitors allowed?",
-      answer: 'Curfew for dormers is at 10pm unless there is an advanced notrice or request. Visitors are allowed on Lounge and Common Areas. Visitors are not allowed inside the rooms.',
-    },
-  {
-      question: "Whats are your safely and security measures?",
-      answer: '24/7 guard on duty. CCTV in hallways and major areas. Gated entry and exit points "',
-    },
-  {
-      question: "Is there a security deposit? Is it refundable?",
-      answer: 'Yes, usually 1 month deposit.  Refundable if no damages + 30 day notice given."',
-    },
-      {
-      question: "Can I cook inside the room?  ",
-      answer: 'There are specific rooms where kitchen cooking is allowed.  Otherwise, cooking is not allowed.  ',
-    },
-  ];
-  const [active, setActive] = useState(null);
+  const [open, setOpen] = useState(0);
+
   return (
-    <div
-      className="pinkfloral min-h-screen px-6 py-20 text-slate-800"
-    >
-      <div className="max-w-4xl mx-auto">
-               <motion.h1
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="dormtitle text-5xl font-bold text-center mb-16 "
-      >
-        Frequently Asked Questions
-      </motion.h1>
-        <div className="space-y-6">
-          {faqs.map((faq, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              className="
-                bg-white/70
-                backdrop-blur-md
-                border border-pink-100
-                rounded-2xl
-                overflow-hidden
-                shadow-md
-                hover:shadow-lg
-                transition
-              "
-            >
-              <button
-                onClick={() =>
-                  setActive(active === index ? null : index)
-                }
-                className="
-                  w-full
-                  text-left
-                  p-6
-                  flex
-                  justify-between
-                  items-center
-                "
+    <div className="pinkfloral min-h-screen py-20 px-6">
+      <div className="max-w-5xl mx-auto">
+
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: -25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-14"
+        >
+          <h1 className="dormtitle text-5xl font-bold mb-4">
+            Frequently Asked Questions
+          </h1>
+
+        </motion.div>
+
+        {/* FAQ Card */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: .2 }}
+          className="backdrop-blur-xl bg-white/80 rounded-3xl shadow-2xl border border-white/50 p-6 md:p-10"
+        >
+          <div className="space-y-5">
+
+            {faqs.map((faq, index) => (
+              <motion.div
+                key={index}
+                layout
+                whileHover={{ scale: 1.01 }}
+                className="rounded-2xl border border-rose-100 bg-white shadow-sm overflow-hidden"
               >
-                <span className="text-lg font-semibold text-slate-800">
-                  {faq.question}
-                </span>
+                <button
+                  onClick={() =>
+                    setOpen(open === index ? -1 : index)
+                  }
+                  className="w-full flex justify-between items-center p-6 text-left"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-rose-500 to-pink-600 text-white flex items-center justify-center shadow-md">
+                      {faq.icon}
+                    </div>
 
-                <span className="text-slate-600 text-xl">
-                  {active === index ? "−" : "+"}
-                </span>
-              </button>
+                    <h2 className="font-semibold text-lg text-slate-800">
+                      {faq.question}
+                    </h2>
+                  </div>
 
-              {active === index && (
-                <div className="px-6 pb-6 text-slate-600">
-                  {faq.answer}
-                </div>
-              )}
-            </motion.div>
-          ))}
-        </div>
+                  <motion.div
+                    animate={{
+                      rotate: open === index ? 180 : 0,
+                    }}
+                  >
+                    <ChevronDown size={26} />
+                  </motion.div>
+                </button>
+
+                <AnimatePresence>
+                  {open === index && (
+                    <motion.div
+                      initial={{
+                        opacity: 0,
+                        height: 0,
+                      }}
+                      animate={{
+                        opacity: 1,
+                        height: "auto",
+                      }}
+                      exit={{
+                        opacity: 0,
+                        height: 0,
+                      }}
+                      transition={{
+                        duration: .35,
+                      }}
+                    >
+                      <div className="px-8 pb-7">
+                        <ul className="space-y-3 list-disc pl-6 text-slate-600 leading-7">
+                          {faq.answer.map((item, i) => (
+                            <motion.li
+                              key={i}
+                              initial={{
+                                opacity: 0,
+                                x: -10,
+                              }}
+                              animate={{
+                                opacity: 1,
+                                x: 0,
+                              }}
+                              transition={{
+                                delay: i * .08,
+                              }}
+                            >
+                              {item}
+                            </motion.li>
+                          ))}
+                        </ul>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ))}
+
+          </div>
+        </motion.div>
       </div>
     </div>
   );

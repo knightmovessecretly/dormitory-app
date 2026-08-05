@@ -11,9 +11,11 @@ export default function Rooms() {
   const [rooms, setRooms] = useState([
    {    id: 1,  roomType: "Solo",  name: "Solo",
       description:  "Perfect for students or professionals who value privacy and comfort.",
-      images: [  "/images/bedroomSolo2.jpg",   "/images/bedroomSolo4.png",  "/images/bedroomSolo5.png",   "/images/bedroomSoloRoomStudyArea.png",   ],
+      images: [  "/images/bedroomSolo2.jpg",   "/images/bedroomSolo4.png",  "/images/bedroomSolo5.png",   
+        "/images/bedroomDoubleBed.png",
+      ],
       capacity: "Good for 1 person",
-      amenities: ["WiFi", "Aircon", "Study Table", "Cabinet"],
+      amenities: ["En Suite Bathrooms"],
       availableBeds: 0,  },
     {
       id: 2, roomType: "Double", name: "Double",  description:
@@ -22,33 +24,30 @@ export default function Rooms() {
         "/images/bedroomDouble.png",
         "/images/bedroomDouble2.png",
         "/images/bedroomDouble3.png",
-        "/images/bedroomDoubleBed.png",
       ],
       capacity: "Good for 2 persons",
-      amenities: ["WiFi", "Aircon", "Shared Cabinet", "Study Area"],
-      availableBeds: 0,
+      amenities: ["En Suite Bathrooms"],
+    availableBeds: 0,
     },
     {  id: 3,  roomType: "Triple",  name: "Triple",
       description: "Affordable shared living space ideal for groups or barkadas.",
       images: [
-        "/images/triple1.jpg",
         "/images/triple2.jpg",
         "/images/triple3.jpg",
         "/images/triple4.jpg",
       ],
-      capacity: "Good for 3 persons",
-      amenities: [ "WiFi",  "Electric Fan",  "Storage",  "Common Study Area",
-      ],  availableBeds: 0,  },
+      capacity: "",
+      amenities: ["En Suite Bathrooms"],
+       availableBeds: 0,  },
     {  id: 4,  roomType: "Quad",
       name: "Quad",
       description:   "Affordable shared living space ideal for groups or barkadas.",
       images: [ "/images/quad3.png",
         "/images/quad1.png",
         "/images/quad2.png",
-        "/images/quad4.png",
       ],
       capacity: "Good for 4 persons",
-      amenities: [  "WiFi", "Electric Fan",   "Storage",  "Common Study Area", ], 
+      amenities: ["En Suite Bathrooms"],
       availableBeds: 0,
     },
     {  id: 5,  roomType: "Short Stay",
@@ -63,7 +62,7 @@ export default function Rooms() {
         "/images/trainsient3.jpeg", 
         "/images/transient4.jpeg", 
       ],
-      amenities: ["WiFi", "Aircon", "Shared Cabinet", "Study Area"],
+      amenities: ["En Suite Bathrooms"],
       capacity: "",
     },    
 
@@ -72,7 +71,7 @@ export default function Rooms() {
       description: "",
       images: [   
       ],
-      amenities: ["WiFi", "Aircon", "Shared Cabinet", "Study Area"],
+      amenities: ["En Suite Bathrooms"],
       capacity: "",
     },    
   ]);  
@@ -113,7 +112,9 @@ export default function Rooms() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="relative z-10 text-center px-4" >
-          <h1 className="dormtitle text-5xl font-bold text-500 mb-4"> Rooms </h1>
+<h1 className="dormtitle">
+  ROOMS
+</h1>
         </motion.div>
       </section>
 

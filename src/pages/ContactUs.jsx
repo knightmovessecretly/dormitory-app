@@ -5,7 +5,6 @@ import "./Themes.css";
 export default function ContactUs() {
   return (
     <div className="pinkfloral min-h-screen px-6 py-20 text-slate-800">
-      {/* Changed from max-w-4xl to max-w-6xl */}
       <div className="max-w-6xl mx-auto w-full">
         <motion.div
           initial={{ opacity: 0, y: -10 }}
@@ -13,7 +12,7 @@ export default function ContactUs() {
           transition={{ duration: 0.5 }}
           className="text-center mb-6"
         >
-          <h1 className="dormtitle text-5xl font-bold text-500 mb-3">
+          <h1 className="dormtitle text-5xl font-bold mb-3">
             Contact Us
           </h1>
         </motion.div>
@@ -31,24 +30,24 @@ export default function ContactUs() {
             rounded-3xl
             p-12 lg:p-16
             shadow-2xl
-            space-y-8
+            space-y-10
             min-h-[720px]
           "
         >
-          <div className="space-y-5">
-            {/* ADDRESS */}
-            <div className="flex gap-4 items-start">
-              <div className="w-10 h-10 shrink-0 rounded-xl bg-rose-50 flex items-center justify-center text-rose-500 border border-rose-100 shadow-sm">
-                <MapPin size={20} />
+          <div className="space-y-8">
+            {/* LOCATION */}
+            <div className="flex gap-5 items-start">
+              <div className="w-14 h-14 shrink-0 rounded-2xl bg-rose-100 flex items-center justify-center text-rose-700 border-2 border-rose-300 shadow-md">
+                <MapPin size={30} />
               </div>
 
               <div>
-                <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-0.5">
-                  Address
+                <h3 className="text-lg font-extrabold text-rose-700 uppercase tracking-[0.2em] mb-2">
+                  Dormitoryana Location
                 </h3>
 
-                <p className="text-slate-800 text-sm font-medium leading-relaxed">
-                  155 B. Gonzales St. corner Katipunan Rd.
+                <p className="text-slate-800 text-base font-medium leading-relaxed">
+                  Katipunan Ave. corner B. Gonzales St.
                   <br />
                   Loyola Heights, Quezon City, Philippines
                 </p>
@@ -62,11 +61,11 @@ export default function ContactUs() {
               </div>
 
               <div>
-                <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-0.5">
+                <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
                   Call / Text
                 </h3>
 
-                <div className="flex flex-col text-sm font-medium text-slate-800 space-y-0.5">
+                <div className="flex flex-col text-sm font-medium text-slate-800 space-y-1">
                   <a
                     href="tel:+639275745809"
                     className="hover:text-indigo-600 transition w-fit"
@@ -91,7 +90,7 @@ export default function ContactUs() {
               </div>
 
               <div>
-                <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-0.5">
+                <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
                   Email
                 </h3>
 
@@ -105,28 +104,27 @@ export default function ContactUs() {
             </div>
           </div>
 
-
           <div className="flex items-center justify-end">
             <a
               href="https://smrcdormitoryana.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs font-bold text-slate-500 hover:text-indigo-600 transition tracking-wider"
+              className="text-xs font-bold text-slate-500 hover:text-rose-700 transition tracking-wider"
             >
               SMRCDORMITORYANA.COM
             </a>
           </div>
 
           {/* MAP */}
-          <div className="rounded-2xl overflow-hidden border border-white/50 shadow-md">
+          <div className="rounded-2xl overflow-hidden border-4 border-rose-600 shadow-xl ring-2 ring-rose-200">
             <iframe
               title="Dormitory Location"
-              src="https://www.google.com/maps?q=155+B.+Gonzales+St.+corner+Katipunan+Ave.,+Loyola+Heights,+Quezon+City,+Philippines&z=17&output=embed"
+              src="https://www.google.com/maps?q=Katipunan+Ave+corner+B.+Gonzales+St.,+Loyola+Heights,+Quezon+City,+Philippines&z=17&output=embed"
               width="100%"
               height="600"
               style={{
                 border: 0,
-                filter: "grayscale(0.1) contrast(1.05)",
+                filter: "grayscale(0.08) contrast(1.05)",
               }}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

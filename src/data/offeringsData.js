@@ -34,10 +34,11 @@ const offeringsData = [
             ],
         },
         {
-            title: "Common Kitchen Dining with Wifi",
+            title: "Common Kitchen Dining ",
+            subtitle : "with Wifi",
             icon: GiKitchenTap,
             images: [
-                "/images/commonKitchenArea.jpg",
+                "/images/commonKitchen.jpg",
             ],
         },
     ],
@@ -120,7 +121,6 @@ const offeringsData = [
             icon: Landmark,
             images: [
                 "/images/bank1.jpg",
-                "/images/bank2.jpg",
             ],
         },
     ],

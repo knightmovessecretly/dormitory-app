@@ -17,7 +17,7 @@ const OurStory = () => {
         </p>
 
       <div className="image-grid">
-        <img src="/images/os1.png" alt="" />
+        <img src="/images/momdad.jpeg" alt="" />
       </div>
 
 
@@ -37,7 +37,7 @@ const OurStory = () => {
           Just like many business endeavors to which families become committed to, what has evolved into SMRC Dormitoryana today is what we: Priscila, Jonelle, Cristina, Ramon, Marcos Jr., and Emmanuel, aim to sustain. It is our beloved parents’ gift to us, their legacy for future generations to come.
         </p>
       <div className="image-grid">
-        <img src="/images/os6.png" alt="" />
+        <img src="/images/familypainting96-L.jpeg" alt="" />
       </div>
 
         <h2 className="dormtitle text-2xl font-semibold text-center text-500 mt-8">
@@ -50,12 +50,7 @@ const OurStory = () => {
             className="w-[500px] translate-x-20  image-grid"
           />
       </div>
-
-
-        <h2 className="text-2xl font-semibold text-center text-pink-500 mt-8">
-        </h2>
-
-
+        <h2 className="text-2xl font-semibold text-center text-pink-500 mt-8">   </h2>
 
       </div>
     </div>
