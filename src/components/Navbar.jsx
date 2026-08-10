@@ -65,7 +65,7 @@ export default function Navbar() {
             </NavLink>
 
             <NavLink to="/news" className={navClass}>
-              News
+              Events
             </NavLink>
 
             {!user ? null : (

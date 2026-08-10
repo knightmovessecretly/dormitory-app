@@ -96,7 +96,7 @@ export default function FAQ() {
           className="text-center mb-14"
         >
           <h1 className="dormtitle text-5xl font-bold mb-4">
-            Frequently Asked Questions
+            FAQ
           </h1>
 
         </motion.div>

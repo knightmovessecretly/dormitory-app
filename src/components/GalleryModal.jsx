@@ -30,17 +30,6 @@ export default function GalleryModal({
         );
     };
 
-    // 1. Auto-Play Timer
-    useEffect(() => {
-        if (images.length <= 1) return;
-
-        const timer = setInterval(() => {
-            nextImage();
-        }, autoPlayInterval);
-
-        // Clears the timer when the user manually changes the image or closes the modal
-        return () => clearInterval(timer);
-    }, [currentIndex, images.length, autoPlayInterval]);
 
     // Keyboard controls
     useEffect(() => {
@@ -102,10 +91,10 @@ export default function GalleryModal({
                 </button>
 
                 {/* Title */}
-                <h2 className="text-white text-center text-3xl font-bold mb-6">
+                <h2 className="text-white text-center text-3xl font-bold mb-6 uppercase">
                     {title}
                 </h2>
-
+0
                 {/* Main Image */}
                 <div className="relative">
                     <img
@@ -200,9 +189,10 @@ export default function GalleryModal({
                 )}
 
                 {/* Instructions */}
+ 
                 <div className="text-center text-white/70 mt-6 text-sm">
-                    ← Previous &nbsp;&nbsp; → Next &nbsp;&nbsp; Esc Close
                 </div>
+                
             </div>
         </div>
     );

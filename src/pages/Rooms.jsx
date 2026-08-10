@@ -70,6 +70,9 @@ export default function Rooms() {
       name: "Co-Share",
       description: "",
       images: [   
+        "/images/share1.jpg",
+        "/images/share2.jpg",
+        "/images/share3.jpg",
       ],
       amenities: ["En Suite Bathrooms"],
       capacity: "",
@@ -104,7 +107,8 @@ export default function Rooms() {
   }, []);
   return (
     <div className="pinkfloral min-h-screen text-slate-800"   >
-      <section className="relative h-[30vh] flex items-center justify-center overflow-hidden">
+<section className="relative min-h-[220px] sm:min-h-[260px] md:min-h-[300px] flex items-center justify-center overflow-hidden">
+
         <div className="absolute w-[500px] h-[500px] bg-pink-300/20 rounded-full blur-3xl -top-40 -left-40" />
         <div className="absolute w-[400px] h-[400px] bg-blue-300/20 rounded-full blur-3xl bottom-0 right-0" />
         <motion.div

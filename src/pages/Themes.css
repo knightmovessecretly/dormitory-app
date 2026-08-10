@@ -16,13 +16,14 @@
   color: #642195;
 }
 
-
 .dormtitle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  padding: 1rem 3rem;
+  /* Responsive padding */
+  padding: clamp(0.65rem, 2vw, 1rem)
+           clamp(1.4rem, 6vw, 3rem);
 
   background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(10px);
@@ -32,10 +33,15 @@
   border-radius: 9999px;
 
   color: #4b1f61;
-  font-size: 3.4rem;
+
+  /* Responsive font */
+  font-size: clamp(1.8rem, 6vw, 3.4rem);
+
   font-weight: 800;
-  letter-spacing: 0.18em;
+  letter-spacing: clamp(0.08em, 0.5vw, 0.18em);
   text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
 
   box-shadow:
     0 12px 35px rgba(0, 0, 0, 0.15),
@@ -44,15 +50,37 @@
   transition: all 0.3s ease;
 }
 
-.dormtitle-capsule:hover {
+.dormtitle:hover {
   transform: translateY(-3px);
   box-shadow:
     0 18px 45px rgba(0, 0, 0, 0.2),
     0 0 20px rgba(236, 72, 153, 0.2);
 }
 
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .dormtitle {
+    font-size: 2.8rem;
+    padding: 0.9rem 2.4rem;
+    letter-spacing: 0.14em;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .dormtitle {
+    font-size: 2rem;
+    padding: 0.7rem 1.5rem;
+    letter-spacing: 0.08em;
+    border-width: 2px;
+  }
+}
+
+
+
 @media (max-width: 768px) {
-  .dormtitle-capsule {
+  .dormtitle {
     font-size: 2.4rem;
     padding: 0.8rem 2rem;
     letter-spacing: 0.12em;

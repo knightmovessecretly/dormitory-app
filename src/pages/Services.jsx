@@ -8,10 +8,12 @@ export default function Offerings() {
     const [selectedImages, setSelectedImages] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [selectedTitle, setSelectedTitle] = useState("");
+    const [selectedSubTitle, setSelectedSubTitle] = useState("");
     const [isOpen, setIsOpen] = useState(false);
     const openGallery = (item) => {
         setSelectedImages(item.images);
         setSelectedTitle(item.title);
+        setSelectedSubTitle(item.subtitle);
         setCurrentIndex(0);
         setIsOpen(true);
     };
@@ -20,6 +22,7 @@ export default function Offerings() {
         setSelectedImages([]);
         setCurrentIndex(0);
         setSelectedTitle("");
+        setSelectedSubTitle("");
     };
     return (
         <div className="pinkfloral  min-h-screen bg-gradient-to-b from-pink-50 via-white to-pink-100 py-16 px-6">
@@ -45,6 +48,7 @@ export default function Offerings() {
                             <OfferingCard
                                 key={item.title}
                                 title={item.title}
+                                subtitle={item.subtitle}
                                 icon={item.icon}
                                 images={item.images}
                                 onOpen={() => openGallery(item)}
@@ -62,6 +66,7 @@ export default function Offerings() {
                     setCurrentIndex={setCurrentIndex}
                     onClose={closeGallery}
                     title={selectedTitle}
+                    subtitle={selectedSubTitle}
                 />
             )}
         </div>

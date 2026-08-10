@@ -14,19 +14,13 @@ export default function NewsPage() {
     axios.get(`${API_URL}news`).then((res) => setNews(res.data));
   }, []);
 
-  // Helper function to turn "<p>Hello <b>World</b></p>" into "Hello World"
-  const stripHtml = (htmlString) => {
-    if (!htmlString) return "";
-    return htmlString.replace(/<\/?[^>]+(>|$)/g, "");
-  };
-
   return (
-    <div
-      className="pinkfloral min-h-screen text-slate-800"
-   >
+    <div className="pinkfloral min-h-screen text-slate-800">
       {/* HERO */}
       <div className="text-center py-16 px-4">
-        <h1 className="dormtitle text-5xl font-bold text-500 mb-3">Dormitory News</h1>
+        <h1 className="dormtitle text-5xl font-bold text-500 mb-3">
+          Events
+        </h1>
       </div>
 
       {/* GRID */}
@@ -40,28 +34,30 @@ export default function NewsPage() {
               transition={{ delay: index * 0.05 }}
             >
               <Link
-//                to={`/news/${item.slug}`}
+                // to={`/news/${item.slug}`}
                 className="block rounded-3xl overflow-hidden bg-white/70 backdrop-blur-xl border border-gray-200 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               >
-                {/* IMAGE */}
-                <div className="overflow-hidden">
-                  <img
-                    src={`${BASE_URL}${item.featured_image}`}
-                    alt={item.title}
-                    className="w-full h-52 object-cover transform hover:scale-105 transition duration-500"
-                  />
+                {/* IMAGE WITH WHITE FRAME */}
+                <div className="p-2 bg-white">
+                  <div className="overflow-hidden rounded-2xl border-4 border-white shadow-sm">
+                    <img
+                      src={`${BASE_URL}${item.featured_image}`}
+                      alt={item.title}
+                      className="w-full h-52 object-cover transform hover:scale-105 transition duration-500"
+                    />
+                  </div>
                 </div>
 
                 {/* CONTENT */}
                 <div className="p-5">
-                  <h2 className="font-bold text-xl text-slate-900 mb-2">{item.title}</h2>
+                  <h2 className="font-normal text-xl text-black mb-2">
+                    {item.title}
+                  </h2>
 
-                  {/* Clean text summary without code tags appearing */}
-<p 
-  className="text-slate-600 text-sm leading-relaxed line-clamp-3"
-  dangerouslySetInnerHTML={{ __html: item.summary }} 
-/>
-
+                  <p
+                    className="text-slate-600 text-sm leading-relaxed line-clamp-3"
+                    dangerouslySetInnerHTML={{ __html: item.summary }}
+                  />
                 </div>
               </Link>
             </motion.div>

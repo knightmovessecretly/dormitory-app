@@ -1,5 +1,6 @@
 export default function OfferingCard({
     title,
+    subtitle,
     images,
     onOpen,
 }) {
@@ -21,34 +22,50 @@ export default function OfferingCard({
                 hover:shadow-2xl
             "
         >
-            {/* Preview Image */}
-            <div className="aspect-[4/3] overflow-hidden">
-                {previewImage ? (
-                    <img
-                        src={previewImage}
-                        alt={title}
-                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                    />
-                ) : (
-                    <div className="w-full h-full bg-pink-50 flex items-center justify-center text-gray-400">
-                        No Image
-                    </div>
-                )}
+            {/* Preview Image / White Photo Frame */}
+            <div className="p-4">
+                <div
+                    className="
+                        bg-white
+                        p-3
+                        rounded-xl
+                        shadow-md
+                        border border-gray-100
+                        overflow-hidden
+                    "
+                >
+                    {previewImage ? (
+                        <div className="aspect-[4/3] overflow-hidden rounded-lg">
+                            <img
+                                src={previewImage}
+                                alt={title}
+                                className="
+                                    w-full
+                                    h-full
+                                    object-cover
+                                    transition-transform
+                                    duration-500
+                                    hover:scale-105
+                                "
+                            />
+                        </div>
+                    ) : (
+                        <div className="aspect-[4/3] rounded-lg bg-pink-50 flex items-center justify-center text-gray-400">
+                            No Image
+                        </div>
+                    )}
+                </div>
             </div>
 
             {/* Content */}
-            <div className="p-5 text-center">
-                <h2 className="text-xl font-semibold text-gray-800">
+            <div className="px-5 pb-6 text-center">
+                <h2 className="text-xl font-semibold text-gray-800 uppercase">
                     {title}
                 </h2>
 
-                <p className="mt-2 text-sm text-gray-500">
-                    {images?.length || 0} Photos
-                </p>
-
-                <p className="mt-3 text-sm text-pink-500 font-medium">
-                    View Gallery
-                </p>
+                <h4 className="text-xl font-semibold text-gray-400 uppercase">
+                    {subtitle}
+                </h4>
             </div>
         </div>
     );
