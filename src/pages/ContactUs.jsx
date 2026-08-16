@@ -14,10 +14,11 @@ export default function ContactUs() {
           transition={{ duration: 0.5 }}
           className="text-center mb-6 sm:mb-8"
         >
-          <h1 className="dormtitle text-4xl sm:text-5xl font-bold mb-2 sm:mb-3">
+          <h1 className="dormtitle text-4xl sm:text-5xl md:text-6xl font-bold mb-2 sm:mb-3 tracking-[0.08em]">
             Contact Us
           </h1>
         </motion.div>
+
 
         {/* CARD CONTAINER */}
         <motion.div
@@ -29,18 +30,24 @@ export default function ContactUs() {
             bg-white/75
             border
             border-white/40
-            rounded-2xl sm:rounded-3xl
-            p-5 sm:p-8 lg:p-12
+            rounded-2xl
+            sm:rounded-3xl
+            p-5
+            sm:p-8
+            lg:p-10
             shadow-2xl
-            space-y-8 sm:space-y-10
+            space-y-8
+            sm:space-y-10
           "
         >
 
           {/* CONTACT INFORMATION */}
-          <div className="space-y-8 sm:space-y-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
-            {/* LOCATION */}
-            <div className="flex flex-col sm:flex-row gap-5 sm:gap-6 items-start">
+            {/* =========================
+                LEFT — LOCATION
+            ========================== */}
+            <div className="flex gap-5 sm:gap-6 items-start">
 
               {/* LOCATION ICON */}
               <div
@@ -63,9 +70,10 @@ export default function ContactUs() {
                 />
               </div>
 
+
+              {/* LOCATION TEXT */}
               <div className="pt-0 sm:pt-1 min-w-0">
 
-                {/* LOCATION TITLE */}
                 <h3
                   className="
                     text-lg
@@ -77,13 +85,13 @@ export default function ContactUs() {
                     tracking-[0.1em]
                     sm:tracking-[0.15em]
                     lg:tracking-[0.18em]
-                    mb-2 sm:mb-3
+                    mb-2
+                    sm:mb-3
                   "
                 >
                   Dormitoryana Location
                 </h3>
 
-                {/* ADDRESS */}
                 <p
                   className="
                     text-slate-800
@@ -110,100 +118,162 @@ export default function ContactUs() {
             </div>
 
 
-            {/* PHONE */}
-            <div className="flex gap-4 items-start">
+            {/* =========================
+                RIGHT — CONTACT DETAILS
+            ========================== */}
+            <div
+              className="
+                grid
+                grid-cols-1
+                sm:grid-cols-2
+                lg:grid-cols-1
+                xl:grid-cols-2
+                gap-6
+              "
+            >
 
-              <div
-                className="
-                  w-10 h-10
-                  shrink-0
-                  rounded-xl
-                  bg-indigo-50
-                  flex items-center justify-center
-                  text-indigo-500
-                  border border-indigo-100
-                  shadow-sm
-                "
-              >
-                <Phone size={20} />
-              </div>
+              {/* PHONE */}
+              <div className="flex gap-4 items-start">
 
-              <div className="min-w-0">
-                <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
-                  Call / Text
-                </h3>
+                {/* PHONE ICON */}
+                <div
+                  className="
+                    w-10 h-10
+                    shrink-0
+                    rounded-xl
+                    bg-indigo-50
+                    flex items-center justify-center
+                    text-indigo-500
+                    border border-indigo-100
+                    shadow-sm
+                  "
+                >
+                  <Phone size={20} />
+                </div>
 
-                <div className="flex flex-col text-sm sm:text-base font-medium text-slate-800 space-y-1">
 
-                  <a
-                    href="tel:+639275745809"
-                    className="hover:text-indigo-600 transition w-fit"
+                {/* PHONE DETAILS */}
+                <div className="min-w-0">
+
+                  <h3
+                    className="
+                      text-xs
+                      font-bold
+                      text-slate-400
+                      uppercase
+                      tracking-widest
+                      mb-1
+                    "
                   >
-                    +(63) 927 574-5809
-                  </a>
-
-                  <a
-                    href="tel:+639214774796"
-                    className="hover:text-indigo-600 transition w-fit"
+                    Call / Text
+                  </h3>
+                  <div
+                    className="
+                      flex
+                      flex-col
+                      text-sm
+                      sm:text-base
+                      font-medium
+                      text-slate-800
+                      space-y-1
+                    "
                   >
-                    +(63) 921 477-4796
-                  </a>
+
+                    <a
+                      href="tel:+639275745809"
+                      className="
+                        hover:text-indigo-600
+                        transition
+                        w-fit
+                      "
+                    >
+                      +(63) 927 574-5809
+                    </a>
+
+                    <a
+                      href="tel:+639214774796"
+                      className="
+                        hover:text-indigo-600
+                        transition
+                        w-fit
+                      "
+                    >
+                      +(63) 921 477-4796
+                    </a>
+
+                  </div>
 
                 </div>
               </div>
-            </div>
 
 
-            {/* EMAIL */}
-            <div className="flex gap-4 items-start">
+              {/* EMAIL */}
+              <div className="flex gap-4 items-start">
 
-              <div
-                className="
-                  w-10 h-10
-                  shrink-0
-                  rounded-xl
-                  bg-emerald-50
-                  flex items-center justify-center
-                  text-emerald-500
-                  border border-emerald-100
-                  shadow-sm
-                "
-              >
-                <Mail size={20} />
-              </div>
-
-              <div className="min-w-0">
-
-                <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
-                  Email
-                </h3>
-
-                <a
-                  href="mailto:SMRCDORM@gmail.com?subject=Inquiry%20from%20Website"
+                {/* EMAIL ICON */}
+                <div
                   className="
-                    text-sm
-                    sm:text-base
-                    font-medium
-                    text-indigo-600
-                    hover:text-indigo-800
-                    underline
-                    decoration-indigo-200
-                    hover:decoration-indigo-600
-                    transition
-                    break-all
+                    w-10 h-10
+                    shrink-0
+                    rounded-xl
+                    bg-emerald-50
+                    flex items-center justify-center
+                    text-emerald-500
+                    border border-emerald-100
+                    shadow-sm
                   "
                 >
-                  SMRCDORM@gmail.com
-                </a>
+                  <Mail size={20} />
+                </div>
+
+
+                {/* EMAIL DETAILS */}
+                <div className="min-w-0">
+
+                  <h3
+                    className="
+                      text-xs
+                      font-bold
+                      text-slate-400
+                      uppercase
+                      tracking-widest
+                      mb-1
+                    "
+                  >
+                    Email
+                  </h3>
+
+<a
+  href="mailto:SMRCDORM@gmail.com?subject=Inquiry%20from%20Website"
+  className="
+    text-sm
+    sm:text-base
+    font-medium
+    text-indigo-600
+    hover:text-indigo-800
+    underline
+    decoration-indigo-200
+    hover:decoration-indigo-600
+    transition
+    whitespace-nowrap
+  "
+>
+  SMRCDORM@gmail.com
+</a>
+
+                </div>
 
               </div>
+
             </div>
 
           </div>
 
 
-          {/* WEBSITE */}
-          <div className="flex justify-center sm:justify-end pt-2">
+          {/* =========================
+              WEBSITE
+          ========================== */}
+          <div className="flex justify-center sm:justify-end pt-0">
 
             <a
               href="https://smrcdormitoryana.com"
@@ -226,21 +296,21 @@ export default function ContactUs() {
           </div>
 
 
-          {/* MAP */}
+          {/* =========================
+              MAP
+          ========================== */}
           <div
             className="
-              rounded-xl sm:rounded-2xl
+              rounded-xl
+              sm:rounded-2xl
               overflow-hidden
-
               border-4
               sm:border-[6px]
               border-rose-800
-
               shadow-[0_10px_35px_rgba(136,19,55,0.35)]
               ring-2
               sm:ring-4
               ring-rose-200/70
-
               bg-rose-800
             "
           >
@@ -270,6 +340,7 @@ export default function ContactUs() {
           </div>
 
         </motion.div>
+
       </div>
     </div>
   );

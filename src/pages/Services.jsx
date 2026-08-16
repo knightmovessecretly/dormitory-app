@@ -28,7 +28,10 @@ export default function Offerings() {
         <div className="pinkfloral  min-h-screen bg-gradient-to-b from-pink-50 via-white to-pink-100 py-16 px-6">
             {/* Header */}
             <div className="text-center mb-14">
-                <h1 className="dormtitle text-5xl font-bold text-600">
+                <h1
+  className="dormtitle text-6xl sm:text-7xl md:text-8xl lg:text-9xl tracking-[0.3em]"
+  style={{ transform: "scaleX(1.3)" }}
+>
                     Offerings
                 </h1>
             </div>

@@ -60,16 +60,18 @@ export default function Landing() {
             </div>
 
             {/* Logo */}
-            <div className="flex justify-center pt-6">
-              <img
-                src={logo}
-                alt="Dormitoryana Logo"
-                className="w-[500px] translate-x-20"
-              />
-            </div>
+{/* Logo */}
+<div className="flex justify-center pt-4 pb-0">
+  <img
+    src={logo}
+    alt="Dormitoryana Logo"
+    className="w-[500px] translate-x-20"
+  />
+</div>
 
-            {/* Gallery */}
-            <div className="grid grid-cols-[1fr_2fr] grid-rows-2 gap-4 p-6 bg-white h-[600px]">
+{/* Gallery */}
+<div className="grid grid-cols-[1fr_2fr] grid-rows-2 gap-4 px-6 pt-0 pb-6 bg-white h-[600px]">
+
               <img
                 src={images[0].src}
                 alt={images[0].alt}

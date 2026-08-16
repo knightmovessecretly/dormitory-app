@@ -40,9 +40,14 @@ const OurStory = () => {
         <img src="/images/familypainting96-L.jpeg" alt="" />
       </div>
 
-        <h2 className="dormtitle text-2xl font-semibold text-center text-500 mt-8">
-          We WELCOME you to 
-        </h2>
+
+<div className="w-full flex justify-center mt-8">
+  <h2 className="dormtitle text-2xl font-semibold text-center text-500">
+    We WELCOME you to
+  </h2>
+</div>
+
+
       <div className="flex justify-center place-items-center ">
           <img 
             src={logo}

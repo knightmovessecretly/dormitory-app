@@ -13,26 +13,19 @@ export default function Rooms() {
       description:  "Perfect for students or professionals who value privacy and comfort.",
       images: [  "/images/bedroomSolo2.jpg",   "/images/bedroomSolo4.png",  "/images/bedroomSolo5.png",   
         "/images/bedroomDoubleBed.png",
-      ],
-      capacity: "Good for 1 person",
-      amenities: ["En Suite Bathrooms"],
+      ],       capacity: "Good for 1 person",   amenities: ["En Suite Bathrooms"],
       availableBeds: 0,  },
     {
       id: 2, roomType: "Double", name: "Double",  description:
         "Comfortable shared room with spacious beds and storage.",
-      images: [
-        "/images/bedroomDouble.png",
-        "/images/bedroomDouble2.png",
+      images: [  "/images/bedroomDouble.png",    "/images/bedroomDouble2.png",
         "/images/bedroomDouble3.png",
       ],
-      capacity: "Good for 2 persons",
-      amenities: ["En Suite Bathrooms"],
-    availableBeds: 0,
+      capacity: "Good for 2 persons",  amenities: ["En Suite Bathrooms"],     availableBeds: 0,
     },
     {  id: 3,  roomType: "Triple",  name: "Triple",
       description: "Affordable shared living space ideal for groups or barkadas.",
-      images: [
-        "/images/triple2.jpg",
+      images: [     "/images/triple2.jpg",
         "/images/triple3.jpg",
         "/images/triple4.jpg",
       ],
@@ -62,10 +55,7 @@ export default function Rooms() {
         "/images/trainsient3.jpeg", 
         "/images/transient4.jpeg", 
       ],
-      amenities: ["En Suite Bathrooms"],
-      capacity: "",
-    },    
-
+      amenities: ["En Suite Bathrooms"],   capacity: "",  },    
     {  id: 6,  roomType: "Co-Share",
       name: "Co-Share",
       description: "",
@@ -74,9 +64,7 @@ export default function Rooms() {
         "/images/share2.jpg",
         "/images/share3.jpg",
       ],
-      amenities: ["En Suite Bathrooms"],
-      capacity: "",
-    },    
+      amenities: ["En Suite Bathrooms"],   capacity: "",   },    
   ]);  
   useEffect(() => {
     const fetchAvailability = async () => {
@@ -111,15 +99,22 @@ export default function Rooms() {
 
         <div className="absolute w-[500px] h-[500px] bg-pink-300/20 rounded-full blur-3xl -top-40 -left-40" />
         <div className="absolute w-[400px] h-[400px] bg-blue-300/20 rounded-full blur-3xl bottom-0 right-0" />
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="relative z-10 text-center px-4" >
-<h1 className="dormtitle">
+
+<motion.div
+  initial={{ opacity: 0, y: 40 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+  className="relative z-10 w-full max-w-7xl text-center px-4"
+>
+<h1
+  className="dormtitle text-6xl sm:text-7xl md:text-8xl lg:text-9xl tracking-[0.3em]"
+  style={{ transform: "scaleX(1.3)" }}
+>
   ROOMS
 </h1>
-        </motion.div>
+
+
+</motion.div>
       </section>
 
       <section className="pt-2 pb-20 px-6">
