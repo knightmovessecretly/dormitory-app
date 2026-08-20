@@ -119,6 +119,9 @@ const offeringsData = [
             icon: Sparkles,
             subtitle : "",
             images: [
+                "/images/wc1.jpg",
+                "/images/wc2.jpg",
+                "/images/wc3.jpg",
             ],
         },
         {
