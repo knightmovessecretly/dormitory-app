@@ -54,10 +54,6 @@ export default function NewsPage() {
                     {item.title}
                   </h2>
 
-                  <p
-                    className="text-slate-600 text-sm leading-relaxed line-clamp-3"
-                    dangerouslySetInnerHTML={{ __html: item.summary }}
-                  />
                 </div>
               </Link>
             </motion.div>

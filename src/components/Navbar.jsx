@@ -116,13 +116,6 @@ export default function Navbar() {
                         News
                       </Link>
 
-                      <Link
-                        to="/smrc/dormitoryana/admin?tab=rooms"
-                        className="flex items-center gap-2 px-4 py-3 hover:bg-gray-100"
-                      >
-                        <Bed size={16} />
-                        Room Inventory
-                      </Link>
 
                       <button
                         onClick={logout}
@@ -225,15 +218,6 @@ export default function Navbar() {
                 >
                   <Newspaper size={16} />
                   News
-                </Link>
-
-                <Link
-                  to="/smrc/dormitoryana/admin?tab=rooms"
-                  className="flex items-center gap-2 px-4 py-2"
-                  onClick={() => setOpen(false)}
-                >
-                  <Bed size={16} />
-                  Room Inventory
                 </Link>
 
                 <button

@@ -25,6 +25,7 @@ import AdminDashboard from "./pages/AdminDashboard";
 import DashboardTabs from "./pages/DashboardTabs";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import { AuthProvider } from './context/AuthContext';
+import Register from "./pages/Register";
 
 export default function App() {
   return (
@@ -45,6 +46,7 @@ export default function App() {
             <Route path="/inventory" element={<Room />} />
             <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
             
             <Route path="/user" element={
               <ProtectedRoute role="user">
