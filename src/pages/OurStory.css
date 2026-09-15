@@ -68,3 +68,23 @@
   font-style: italic;
   color: #666;
 }
+
+/* OurStory.css */
+
+.image-grid {
+  width: 100%;
+}
+
+/* Prevent images from overflowing their containers */
+.image-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Slightly larger spacing on tablets/desktops */
+@media (min-width: 768px) {
+  .image-grid {
+    width: 100%;
+  }
+}
