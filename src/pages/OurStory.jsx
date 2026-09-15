@@ -48,13 +48,27 @@ const OurStory = () => {
 </div>
 
 
-      <div className="flex justify-center place-items-center ">
-          <img 
-            src={logo}
-            alt="Dormitoryana Logo"
-            className="w-[500px] translate-x-20  image-grid"
-          />
-      </div>
+
+  <div className="w-full flex justify-center items-center">
+    <img
+      src={logo}
+      alt="Dormitoryana Logo"
+      className="
+        block
+        w-[220px]
+        sm:w-[300px]
+        md:w-[380px]
+        lg:w-[450px]
+        max-w-[90%]
+        h-auto
+        mx-auto
+        object-contain
+      "
+    />
+
+
+  </div>
+
         <h2 className="text-2xl font-semibold text-center text-pink-500 mt-8">   </h2>
 
       </div>

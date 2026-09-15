@@ -98,8 +98,7 @@ export default function Landing() {
 >
   <div className="w-full flex justify-center items-center">
 
-  
-    <img
+      <img
       src={logo}
       alt="Dormitoryana Logo"
       className="
@@ -114,6 +113,7 @@ export default function Landing() {
         object-contain
       "
     />
+
 
   </div>
 </div>
