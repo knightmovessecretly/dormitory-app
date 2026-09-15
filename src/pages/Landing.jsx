@@ -79,33 +79,46 @@ export default function Landing() {
             {/* =========================
                 LOGO
             ========================== */}
-            <div
-              className="
-                flex
-                justify-center
-                items-center
-                px-4
-                pt-3
-                pb-1
-                sm:pt-4
-                sm:pb-2
-                overflow-hidden
-              "
-            >
-              <img
-                src={logo}
-                alt="Dormitoryana Logo"
-                className="
-                  block
-                  w-full
-                  max-w-[280px]
-                  sm:max-w-[380px]
-                  md:max-w-[500px]
-                  h-auto
-                  object-contain
-                "
-              />
-            </div>
+
+{/* =========================
+    LOGO
+========================== */}
+<div
+  className="
+    w-full
+    flex
+    justify-center
+    items-center
+    bg-white
+    px-4
+    py-4
+    sm:py-5
+    md:py-6
+  "
+>
+  <div className="w-full flex justify-center items-center">
+
+  
+    <img
+      src={logo}
+      alt="Dormitoryana Logo"
+      className="
+        block
+        w-[220px]
+        sm:w-[300px]
+        md:w-[380px]
+        lg:w-[450px]
+        max-w-[90%]
+        h-auto
+        mx-auto
+        object-contain
+      "
+    />
+
+  </div>
+</div>
+
+
 
             {/* =========================
                 GALLERY
