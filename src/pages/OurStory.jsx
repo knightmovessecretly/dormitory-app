@@ -49,8 +49,8 @@ const OurStory = () => {
 
 
 
-  <div className="w-full flex justify-center items-center">
-    <img
+  <div className="w-full flex justify-center items-center mt-6">
+    <img 
       src={logo}
       alt="Dormitoryana Logo"
       className="
