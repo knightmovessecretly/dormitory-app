@@ -8,17 +8,26 @@ import {
   MapPin,
   Sparkles,
   BookOpen,
+  HelpCircle,
+  CalendarDays,
+  ArrowRight,
 } from "lucide-react";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaTiktok,
-  FaYoutube,
-} from "react-icons/fa";
+
+import { FaFacebookF } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "../pages/Themes.css";
 
 const Footer = () => {
+  const quickLinks = [
+    { to: "/", label: "Home", icon: Home },
+    { to: "/rooms", label: "Rooms", icon: BedDouble },
+    { to: "/offerings", label: "Offerings", icon: Sparkles },
+    { to: "/about", label: "Our Story", icon: BookOpen },
+    { to: "/contact", label: "Contact Us", icon: PhoneCall },
+    { to: "/faq", label: "FAQ", icon: HelpCircle },
+    { to: "/news", label: "Events", icon: CalendarDays },
+  ];
+
   return (
     <footer className="bg-gradient-to-br from-pink-600 via-pink-500 to-rose-500 text-white mt-12">
 
@@ -27,10 +36,8 @@ const Footer = () => {
         {/* Top Divider */}
         <div className="h-px bg-gradient-to-r from-transparent via-white/40 to-transparent mb-10" />
 
-
         {/* ================= MAIN FOOTER ================= */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-14">
-
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-14">
 
           {/* ================= QUICK LINKS ================= */}
           <div className="text-center">
@@ -40,122 +47,78 @@ const Footer = () => {
               Quick Links
             </h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-sm mx-auto">
+            <nav aria-label="Footer navigation">
 
-              <Link
-                to="/"
-                className="
-                  flex items-center justify-center sm:justify-start
-                  gap-3
-                  text-pink-50
-                  hover:text-white
-                  hover:translate-x-1
-                  transition
-                  text-base
-                  md:text-lg
-                  font-semibold
-                "
-              >
-                <Home size={19} strokeWidth={2.3} />
-                Home
-              </Link>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 max-w-lg mx-auto">
 
+                {quickLinks.map(({ to, label, icon: Icon }) => (
+                  <Link
+                    key={to}
+                    to={to}
+                    className="
+                      group
+                      flex items-center
+                      justify-between
+                      gap-3
+                      min-h-12
+                      px-4
+                      py-3
+                      rounded-xl
+                      text-pink-50
+                      font-semibold
+                      text-base
+                      md:text-lg
 
-              <Link
-                to="/rooms"
-                className="
-                  flex items-center justify-center sm:justify-start
-                  gap-3
-                  text-pink-50
-                  hover:text-white
-                  hover:translate-x-1
-                  transition
-                  text-base
-                  md:text-lg
-                  font-semibold
-                "
-              >
-                <BedDouble size={19} strokeWidth={2.3} />
-                Rooms
-              </Link>
+                      bg-white/10
+                      border border-white/10
 
+                      hover:bg-white/20
+                      hover:text-white
+                      hover:border-white/20
 
-              <Link
-                to="/offerings"
-                className="
-                  flex items-center justify-center sm:justify-start
-                  gap-3
-                  text-pink-50
-                  hover:text-white
-                  hover:translate-x-1
-                  transition
-                  text-base
-                  md:text-lg
-                  font-semibold
-                "
-              >
-                <Sparkles size={19} strokeWidth={2.3} />
-                Offerings
-              </Link>
+                      active:bg-white/30
+                      active:scale-[0.98]
 
+                      transition-all duration-200
+                    "
+                  >
+                    <span className="flex items-center gap-3">
 
-              <Link
-                to="/gallery"
-                className="
-                  flex items-center justify-center sm:justify-start
-                  gap-3
-                  text-pink-50
-                  hover:text-white
-                  hover:translate-x-1
-                  transition
-                  text-base
-                  md:text-lg
-                  font-semibold
-                "
-              >
-                <Image size={19} strokeWidth={2.3} />
-                Gallery
-              </Link>
+                      <Icon
+                        size={19}
+                        strokeWidth={2.3}
+                        className="
+                          shrink-0
+                          transition-transform
+                          duration-200
+                          group-hover:scale-110
+                        "
+                      />
 
+                      <span>{label}</span>
 
-              <Link
-                to="/about"
-                className="
-                  flex items-center justify-center sm:justify-start
-                  gap-3
-                  text-pink-50
-                  hover:text-white
-                  hover:translate-x-1
-                  transition
-                  text-base
-                  md:text-lg
-                  font-semibold
-                "
-              >
-                <BookOpen size={19} strokeWidth={2.3} />
-                Our Story
-              </Link>
+                    </span>
 
+                    {/* Arrow makes it obvious this is clickable */}
+                    <ArrowRight
+                      size={18}
+                      className="
+                        shrink-0
+                        opacity-50
+                        -translate-x-1
+                        transition-all
+                        duration-200
+                        group-hover:opacity-100
+                        group-hover:translate-x-0
+                      "
+                    />
 
-              <Link
-                to="/contact"
-                className="
-                  flex items-center justify-center sm:justify-start
-                  gap-3
-                  text-pink-50
-                  hover:text-white
-                  hover:translate-x-1
-                  transition
-                  text-base
-                  md:text-lg
-                  font-semibold
-                "
-              >
-                <PhoneCall size={19} strokeWidth={2.3} />
-                Contact Us
-              </Link>
+                  </Link>
+                ))}
 
-            </div>
+              </div>
+
+            </nav>
           </div>
 
 
@@ -167,26 +130,45 @@ const Footer = () => {
               Contact Us
             </h2>
 
-
-            <div className="space-y-5">
+            <div className="space-y-3">
 
               {/* EMAIL */}
               <a
                 href="mailto:SMRCDORM@gmail.com"
                 className="
+                  group
                   flex items-center justify-center
                   gap-3
+                  min-h-12
+                  px-4
+                  py-3
+                  rounded-xl
+                  bg-white/10
+                  border border-white/10
                   text-pink-50
+                  hover:bg-white/20
                   hover:text-white
-                  transition
+                  active:bg-white/30
+                  transition-all duration-200
                   text-base
                   md:text-lg
                   font-semibold
-                  whitespace-nowrap
                 "
               >
-                <Mail size={20} strokeWidth={2.3} />
-                <span>SMRCDORM@gmail.com</span>
+                <Mail
+                  size={20}
+                  strokeWidth={2.3}
+                  className="shrink-0"
+                />
+
+                <span className="break-all">
+                  SMRCDORM@gmail.com
+                </span>
+
+                <ArrowRight
+                  size={17}
+                  className="shrink-0 opacity-50 group-hover:opacity-100"
+                />
               </a>
 
 
@@ -194,19 +176,39 @@ const Footer = () => {
               <a
                 href="tel:+639275745809"
                 className="
+                  group
                   flex items-center justify-center
                   gap-3
+                  min-h-12
+                  px-4
+                  py-3
+                  rounded-xl
+                  bg-white/10
+                  border border-white/10
                   text-pink-50
+                  hover:bg-white/20
                   hover:text-white
-                  transition
+                  active:bg-white/30
+                  transition-all duration-200
                   text-base
                   md:text-lg
                   font-semibold
-                  whitespace-nowrap
                 "
               >
-                <Phone size={20} strokeWidth={2.3} />
-                <span>+63 927 574 5809</span>
+                <Phone
+                  size={20}
+                  strokeWidth={2.3}
+                  className="shrink-0"
+                />
+
+                <span>
+                  +63 927 574 5809
+                </span>
+
+                <ArrowRight
+                  size={17}
+                  className="shrink-0 opacity-50 group-hover:opacity-100"
+                />
               </a>
 
 
@@ -215,24 +217,40 @@ const Footer = () => {
                 className="
                   flex items-center justify-center
                   gap-3
+                  min-h-12
+                  px-4
+                  py-3
+                  rounded-xl
+                  bg-white/10
+                  border border-white/10
                   text-pink-50
                   text-base
                   md:text-lg
                   font-semibold
                 "
               >
-                <MapPin size={20} strokeWidth={2.3} />
-                <span>Quezon City, Philippines</span>
+                <MapPin
+                  size={20}
+                  strokeWidth={2.3}
+                  className="shrink-0"
+                />
+
+                <span>
+                  Quezon City, Philippines
+                </span>
               </div>
+
             </div>
           </div>
 
 
           {/* ================= SOCIAL ================= */}
           <div className="text-center">
+
             <h2 className="text-xl md:text-2xl font-extrabold mb-5">
               Follow Us
             </h2>
+
             <p
               className="
                 text-pink-50
@@ -248,17 +266,17 @@ const Footer = () => {
               Stay connected with us through our social media pages.
             </p>
 
-
             {/* SOCIAL ICONS */}
             <div className="flex justify-center gap-4 flex-wrap">
+
               <a
                 href="https://www.facebook.com/SMRCDorm"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Facebook"
+                aria-label="Visit SMRC Dormitoryana on Facebook"
                 className="
-                  w-11 h-11
-                  md:w-13 md:h-13
+                  w-12 h-12
+                  md:w-14 md:h-14
                   rounded-xl
                   bg-white/10
                   border border-white/20
@@ -266,6 +284,7 @@ const Footer = () => {
                   hover:bg-white
                   hover:text-pink-500
                   hover:-translate-y-1
+                  active:scale-95
                   transition-all
                   flex items-center justify-center
                   text-xl
@@ -274,6 +293,7 @@ const Footer = () => {
               >
                 <FaFacebookF />
               </a>
+
             </div>
           </div>
 

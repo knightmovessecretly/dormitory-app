@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import ScrollToTop from "./components/ScrollToTop";
 import MainLayout from "./layouts/MainLayout";
 import AdminLayout from "./layouts/AdminLayout";
 import "./App.css";
@@ -31,6 +31,7 @@ export default function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
+       <ScrollToTop />
         <Routes>
           {/* Public / General User Routes */}
           <Route element={<MainLayout />}>
